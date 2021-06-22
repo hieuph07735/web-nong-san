@@ -17,7 +17,7 @@
 
     <!-- Site Icons -->
     <link rel="shortcut icon" href="Client/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="Client/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="Client/css/bootstrap.min.css">

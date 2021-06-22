@@ -17,9 +17,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('danh-sach-danh-muc','backEnd\CategoryController@index')->name('category.index');
+Route::group(['prefix' => 'danh-muc'], function() {
+    Route::get('/danh-sach','backEnd\CategoryController@list')->name('category.list');
+    Route::get('/trang-tao-danh-muc','backEnd\CategoryController@add')->name('category.add');
+    Route::post('/tao-danh-muc','backEnd\CategoryController@save')->name('category.save');
+    Route::get('/trang-sua-danh-muc/{id}','backEnd\CategoryController@edit')->name('category.edit');
+    Route::post('/sua-danh-muc/{id}','backEnd\CategoryController@update')->name('category.update');
+    Route::post('/xoa-danh-muc','backEnd\CategoryController@delete')->name('category.delete');
+    Route::post('/sua-trang-thai','backEnd\CategoryController@status')->name('category.status');
+});
 
-
+Route::group(['prefix' => 'san-pham'], function() {
+    Route::get('/danh-sach','backEnd\ProductController@list')->name('product.list');
+    
+});
 
 //Client
 Route::get('main', 'Client\HomeController@index')->name('list-main');

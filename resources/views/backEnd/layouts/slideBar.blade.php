@@ -25,7 +25,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>
                    Đơn hàng
                 </a>
-                <a class="nav-link" href="tables.html">
+                <a class="nav-link" href="{{route('product.list')}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-inboxes"></i></div>
                     Sản phẩm
                 </a>

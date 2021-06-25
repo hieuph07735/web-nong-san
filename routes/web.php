@@ -29,7 +29,7 @@ Route::group(['prefix' => 'danh-muc'], function() {
 
 Route::group(['prefix' => 'san-pham'], function() {
     Route::get('/danh-sach','backEnd\ProductController@list')->name('product.list');
-    
+    Route::get('/trang-tao-san-pham','backEnd\ProductController@add')->name('product.add');
 });
 
 //Client

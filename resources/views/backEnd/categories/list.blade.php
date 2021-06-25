@@ -23,6 +23,7 @@ Danh sách danh mục
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
+                            <th>STT</th>
                             <th>Tên</th>
                             <th>Loại</th>
                             <th>Ảnh</th>
@@ -32,6 +33,7 @@ Danh sách danh mục
                     </thead>
                     <tfoot>
                         <tr>
+                            <th>STT</th>
                             <th>Tên</th>
                             <th>Loại</th>
                             <th>Ảnh</th>
@@ -42,6 +44,7 @@ Danh sách danh mục
                     <tbody>
                         @foreach($data as $key=>$value)
                         <tr id="cate{{$value->id}}">
+                            <td>{{$key + 1}}</td>
                             <td>{{$value->name}}</td>
                             <td>
                                 @if($value->type == 1)

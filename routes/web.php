@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::group(['prefix' => 'danh-muc'], function() {
     Route::get('/danh-sach','backEnd\CategoryController@list')->name('category.list');
@@ -33,4 +33,4 @@ Route::group(['prefix' => 'san-pham'], function() {
 });
 
 //Client
-Route::get('main', 'Client\HomeController@index')->name('list-main');
+Route::get('/', 'Client\HomeController@index')->name('list-main');

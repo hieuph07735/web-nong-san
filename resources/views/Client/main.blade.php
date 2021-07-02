@@ -16,8 +16,8 @@
     <meta name="author" content="">
 
     <!-- Site Icons -->
-    <link rel="shortcut icon" href="Client/images/favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    
+    <link rel="shortcut icon" href="Client/images/apple-touch-icon.png" type="image/x-icon">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="Client/css/bootstrap.min.css">
@@ -112,7 +112,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="Client/images/logo.png" class="logo" alt=""></a>
+                <a class="navbar-brand" href="index.html"><img src="Client/images/favicon.ico" class="logo" alt="" style="width:150px"></a>
             </div>
             <!-- End Header Navigation -->
 

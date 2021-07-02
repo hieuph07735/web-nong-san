@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Model\Category;
 use App\Http\Requests\AddCategory;
 use App\Http\Requests\EditCategory;
+use File;
 
 class CategoryController extends Controller
 {
@@ -68,7 +69,8 @@ class CategoryController extends Controller
             $flight->name = $request->name;
             $flight->type = $request->type;
             if($image != 1){
-                $flight->image = $request->image;
+                File::delete($flight->image);
+                $flight->image = $image;
             }
             $flight->status = $request->status;
             $flight->save();
@@ -106,6 +108,7 @@ class CategoryController extends Controller
 
         try {
             $flight = Category::find($request->id);
+            File::delete($flight->image);
             $flight->delete();
             $status = 1; 
         } 

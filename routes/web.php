@@ -33,4 +33,14 @@ Route::group(['prefix' => 'san-pham'], function() {
 });
 
 //Client
-Route::get('/', 'Client\HomeController@index')->name('list-main');
+Route::get('/', 'Client\HomeController@index')->name('home');
+Route::get('gioi-thieu', 'Client\AboutController@index')->name('about');
+Route::get('san-pham', 'Client\ProductController@index')->name('product');
+Route::get('bo-suu-tap', 'Client\GalleryController@index')->name('gallery');
+Route::get('lien-he', 'Client\ContactController@index')->name('contact');
+Route::get('gio-hang', 'Client\CartController@index')->name('cart');
+Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
+
+
+
+

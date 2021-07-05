@@ -10,17 +10,17 @@
                 </div>
                 <div class="our-link">
                     <ul>
-                        <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
-                        <li><a href="#"><i class="fas fa-location-arrow"></i> Our location</a></li>
-                        <li><a href="#"><i class="fas fa-headset"></i> Contact Us</a></li>
+                        <li><a href="#"><i class="fa fa-user s_color"></i> Tài khoản của tôi</a></li>
+                        <li><a href="#"><i class="fas fa-location-arrow"></i> Vị trí cửa hàng</a></li>
+                        <li><a href="#"><i class="fas fa-headset"></i> Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="login-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-                        <option>Register Here</option>
-                        <option>Sign In</option>
+                        <option>Đăng ký</option>
+                        <option>Đăng nhập</option>
                     </select>
                 </div>
                 <div class="text-slid-box">
@@ -82,15 +82,11 @@
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Sản phẩm</a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('product')}}">Sidebar Shop</a></li>
-                            <li><a href="{{route('product.detail')}}">Shop Detail</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
+                            <li><a href="{{route('product')}}">Danh sách sản phẩm</a></li>
+                            <li><a href="{{route('product.detail')}}">Chi tiết sản phẩm</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('gallery')}}">Bộ sưu tâp</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{route('gallery')}}">Danh mục sản phẩm</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Liên hệ</a></li>
                 </ul>
             </div>

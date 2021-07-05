@@ -8,10 +8,10 @@ Bộ sưu tập
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h2>Services</h2>
+                <h2>Danh mục sản phẩm</h2>
                 <ul class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item active">Services</li>
+                    <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                    <li class="breadcrumb-item active">Danh mục sản phẩm</li>
                 </ul>
             </div>
         </div>
@@ -25,8 +25,8 @@ Bộ sưu tập
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-all text-center">
-                    <h1>Our Gallery</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    <h1>Danh sách danh mục sản phẩm</h1>
+                    <p>Giới thiệu danh sách danh mục sản phẩm nongsanthanhxuan.vn hiện có .</p>
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ Bộ sưu tập
             <div class="col-lg-12">
                 <div class="special-menu text-center">
                     <div class="button-group filter-button-group">
-                        <button class="active" data-filter="*">All</button>
+                        <button class="active" data-filter="*">Tất cả</button>
                         <button data-filter=".bulbs">Bulbs</button>
                         <button data-filter=".fruits">Fruits</button>
                         <button data-filter=".podded-vegetables">Podded vegetables</button>
@@ -51,7 +51,7 @@ Bộ sưu tập
                         <div class="type-lb">
                             <p class="sale">Sale</p>
                         </div>
-                        <img src="images/gallery-img-01.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-01.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -67,7 +67,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid fruits">
                 <div class="products-single fix">
                     <div class="box-img-hover">
-                        <img src="images/gallery-img-02.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-02.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -82,7 +82,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid bulbs">
                 <div class="products-single fix">
                     <div class="box-img-hover">
-                        <img src="images/gallery-img-03.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-03.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -97,7 +97,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid fruits">
                 <div class="products-single fix">
                     <div class="box-img-hover">                            
-                        <img src="images/gallery-img-04.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-04.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -111,7 +111,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid bulbs">
                 <div class="products-single fix">
                     <div class="box-img-hover">
-                        <img src="images/gallery-img-05.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-05.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -126,7 +126,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid fruits">
                 <div class="products-single fix">
                     <div class="box-img-hover">                            
-                        <img src="images/gallery-img-06.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-06.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -141,7 +141,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid podded-vegetables">
                 <div class="products-single fix">
                     <div class="box-img-hover">
-                        <img src="images/gallery-img-07.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-07.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -156,7 +156,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid root-and-tuberous">
                 <div class="products-single fix">
                     <div class="box-img-hover">                            
-                        <img src="images/gallery-img-08.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-08.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -171,7 +171,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid root-and-tuberous">
                 <div class="products-single fix">
                     <div class="box-img-hover">                            
-                        <img src="images/gallery-img-09.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-09.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -186,7 +186,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid podded-vegetables">
                 <div class="products-single fix">
                     <div class="box-img-hover">
-                        <img src="images/gallery-img-10.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-10.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -201,7 +201,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid root-and-tuberous">
                 <div class="products-single fix">
                     <div class="box-img-hover">                           
-                        <img src="images/gallery-img-11.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-11.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -216,7 +216,7 @@ Bộ sưu tập
             <div class="col-lg-3 col-md-6 special-grid podded-vegetables">
                 <div class="products-single fix">
                     <div class="box-img-hover">
-                        <img src="images/gallery-img-12.jpg" class="img-fluid" alt="Image">
+                        <img src="Client/images/gallery-img-12.jpg" class="img-fluid" alt="Image">
                         <div class="mask-icon">
                             <ul>
                                 <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -237,7 +237,7 @@ Bộ sưu tập
     <div class="main-instagram owl-carousel owl-theme">
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-01.jpg" alt="" />
+                <img src="Client/images/instagram-img-01.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -245,7 +245,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-02.jpg" alt="" />
+                <img src="Client/images/instagram-img-02.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -253,7 +253,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-03.jpg" alt="" />
+                <img src="Client/images/instagram-img-03.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -261,7 +261,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-04.jpg" alt="" />
+                <img src="Client/images/instagram-img-04.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -269,7 +269,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-05.jpg" alt="" />
+                <img src="Client/images/instagram-img-05.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -277,7 +277,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-06.jpg" alt="" />
+                <img src="Client/images/instagram-img-06.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -285,7 +285,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-07.jpg" alt="" />
+                <img src="Client/images/instagram-img-07.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -293,7 +293,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-08.jpg" alt="" />
+                <img src="Client/images/instagram-img-08.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -301,7 +301,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-09.jpg" alt="" />
+                <img src="Client/images/instagram-img-09.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>
@@ -309,7 +309,7 @@ Bộ sưu tập
         </div>
         <div class="item">
             <div class="ins-inner-box">
-                <img src="images/instagram-img-05.jpg" alt="" />
+                <img src="Client/images/instagram-img-05.jpg" alt="" />
                 <div class="hov-in">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                 </div>

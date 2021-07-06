@@ -27,29 +27,15 @@
                     <div id="offer-box" class="carouselTicker">
                         <ul class="offer-box">
                             <li>
-                                <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT80
+                                <i class="fab fa-opencart"></i> Sale 20% với khách hàng thân thiết của cửa hàng
                             </li>
                             <li>
-                                <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
+                                <i class="fab fa-opencart"></i> Sale 30-50% với các loại rau mùa hè
                             </li>
                             <li>
-                                <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
+                                <i class="fab fa-opencart"></i> Sale 20% với 10 khách hàng duy nhất khi nhập mã voucher: TX5236541
                             </li>
-                            <li>
-                                <i class="fab fa-opencart"></i> Off 50%! Shop Now
-                            </li>
-                            <li>
-                                <i class="fab fa-opencart"></i> Off 10%! Shop Vegetables
-                            </li>
-                            <li>
-                                <i class="fab fa-opencart"></i> 50% - 80% off on Vegetables
-                            </li>
-                            <li>
-                                <i class="fab fa-opencart"></i> 20% off Entire Purchase Promo code: offT30
-                            </li>
-                            <li>
-                                <i class="fab fa-opencart"></i> Off 50%! Shop Now
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>

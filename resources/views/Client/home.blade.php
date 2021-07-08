@@ -11,9 +11,9 @@ Trang chủ
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                        <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                        <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh Xuân</strong></h1>
+                        <p class="m-b-40"> <br></p>
+                        <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
                     </div>
                 </div>
             </div>
@@ -23,9 +23,9 @@ Trang chủ
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                        <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                    <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh Xuân</strong></h1>
+                        <p class="m-b-40"> <br> </p>
+                        <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
                     </div>
                 </div>
             </div>
@@ -35,9 +35,9 @@ Trang chủ
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                        <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                        <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                    <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh Xuân</strong></h1>
+                        <p class="m-b-40"> <br></p>
+                        <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
                     </div>
                 </div>
             </div>
@@ -57,19 +57,19 @@ Trang chủ
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="Client/images/categories_img_01.jpg" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                    <a class="btn hvr-hover" href="#">Các loại Rau</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="Client/images/categories_img_02.jpg" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                    <a class="btn hvr-hover" href="#">Các loại Củ</a>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="shop-cat-box">
                     <img class="img-fluid" src="Client/images/categories_img_03.jpg" alt="" />
-                    <a class="btn hvr-hover" href="#">Lorem ipsum dolor</a>
+                    <a class="btn hvr-hover" href="#">Các loại Quả</a>
                 </div>
             </div>
         </div>
@@ -100,8 +100,8 @@ Trang chủ
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-all text-center">
-                    <h1>Fruits & Vegetables</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    <h1>Sản phẩm nổi bật</h1>
+                    
                 </div>
             </div>
         </div>
@@ -109,9 +109,9 @@ Trang chủ
             <div class="col-lg-12">
                 <div class="special-menu text-center">
                     <div class="button-group filter-button-group">
-                        <button class="active" data-filter="*">All</button>
-                        <button data-filter=".top-featured">Top featured</button>
-                        <button data-filter=".best-seller">Best seller</button>
+                        <button class="active" data-filter="*">Tất cả</button>
+                        <button data-filter=".top-featured">Bán chạy</button>
+                        <button data-filter=".best-seller"> Sản phẩm Sales</button>
                     </div>
                 </div>
             </div>
@@ -220,8 +220,8 @@ Trang chủ
         <div class="row">
             <div class="col-lg-12">
                 <div class="title-all text-center">
-                    <h1>latest blog</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
+                    <h1>Top Bài Viết</h1>
+                   
                 </div>
             </div>
         </div>

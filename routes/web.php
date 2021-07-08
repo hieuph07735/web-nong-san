@@ -30,6 +30,18 @@ Route::group(['prefix' => 'danh-muc'], function() {
 Route::group(['prefix' => 'san-pham'], function() {
     Route::get('/danh-sach','backEnd\ProductController@list')->name('product.list');
     Route::get('/trang-tao-san-pham','backEnd\ProductController@add')->name('product.add');
+    Route::post('/tao-san-pham','backEnd\ProductController@save')->name('product.save');
+
+});
+
+//Tài khoản
+Route::group(['prefix' => 'tai-khoan'], function() {
+    Route::get('/danh-sach/{status}','backEnd\UserController@list')->name('user.list');
+    Route::get('/trang-tao-tai-khoan','backEnd\UserController@add')->name('user.add');
+    Route::post('/tao-tai-khoan','backEnd\UserController@save')->name('user.save');
+    Route::post('/xoa-tai-khoan','backEnd\UserController@delete')->name('user.delete');
+    Route::get('/trang-sua-tai-khoan/{id}','backEnd\UserController@edit')->name('user.edit');
+    Route::post('/sua-tai-khoan/{id}','backEnd\UserController@update')->name('user.update');
 });
 
 //Client

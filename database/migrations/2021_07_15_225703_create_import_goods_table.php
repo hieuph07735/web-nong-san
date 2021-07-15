@@ -20,6 +20,7 @@ class CreateImportGoodsTable extends Migration
             $table->string('start_time')->nullable();
             $table->string('end_time')->nullable();
             $table->string('sort')->nullable();
+            $table->timestamps();
 
             
         });

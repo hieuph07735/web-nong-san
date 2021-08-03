@@ -16,9 +16,9 @@ Danh sách sản phẩm
 
         <div class="card mb-4">
             <div class="card-header">
-                <a href="{{route('product.add')}}" class="btn btn-success">Thên mới</a>
+                <a href="{{route('product.create')}}" class="btn btn-success">Thên mới</a>
             </div>
-            
+
             <div class="card-body">
                 <table id="datatablesSimple">
                     <thead>
@@ -59,7 +59,7 @@ Danh sách sản phẩm
                             <td><img src="{{$value->image}}" style="width: 100px"></td>
                             <td>
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input status_category" type="checkbox" data-categoryid="{{$value->id}}" {{$value->status == 1 ?"checked":''}}> 
+                                    <input class="form-check-input status_category" type="checkbox" data-categoryid="{{$value->id}}" {{$value->status == 1 ?"checked":''}}>
                                   </div>
                             </span>
                             </td>

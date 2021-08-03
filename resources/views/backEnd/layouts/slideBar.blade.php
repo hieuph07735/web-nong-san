@@ -13,7 +13,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-people-fill"></i></div>
                     User
                 </a>
-                <a class="nav-link" href="{{route('category.list')}}">
+                <a class="nav-link" href="{{route('category.index')}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-bookmarks"></i></div>
                     Danh mục
                 </a>
@@ -33,7 +33,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>
                    Đơn hàng
                 </a>
-                <a class="nav-link" href="{{route('product.list')}}">
+                <a class="nav-link" href="{{route('product.index')}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-inboxes"></i></div>
                     Sản phẩm
                 </a>
@@ -41,7 +41,7 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-cash-coin"></i></div>
                     Voucher
                 </a>
-              
+
                 <a class="nav-link" href="tables.html">
                     <div class="sb-nav-link-icon"><i class="bi bi-receipt"></i></div>
                     Bình luận

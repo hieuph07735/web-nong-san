@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\backEnd\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,48 +13,56 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('/register', 'AuthController@register')->name('get.register');
+//Route::post('/register', 'AuthController@storeUser')->name('post.register');
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-Route::group(['prefix' => 'danh-muc'], function() {
-    Route::get('/danh-sach','backEnd\CategoryController@list')->name('category.list');
-    Route::get('/trang-tao-danh-muc','backEnd\CategoryController@add')->name('category.add');
-    Route::post('/tao-danh-muc','backEnd\CategoryController@save')->name('category.save');
-    Route::get('/trang-sua-danh-muc/{id}','backEnd\CategoryController@edit')->name('category.edit');
-    Route::post('/sua-danh-muc/{id}','backEnd\CategoryController@update')->name('category.update');
-    Route::post('/xoa-danh-muc','backEnd\CategoryController@delete')->name('category.delete');
-    Route::post('/sua-trang-thai','backEnd\CategoryController@status')->name('category.status');
+//Admin
+Route::group(['prefix' => 'quan-tri'], function (){
+    Route::get('/dang-nhap', 'AuthController@getLogin')->name('get.login');
+    Route::post('/dang-nhap', 'AuthController@postLogin')->name('post.login');
+    Route::get('/logout', 'AuthController@logout')->name('get.logout');
 });
 
-Route::group(['prefix' => 'san-pham'], function() {
-    Route::get('/danh-sach','backEnd\ProductController@list')->name('product.list');
-    Route::get('/trang-tao-san-pham','backEnd\ProductController@add')->name('product.add');
-    Route::post('/tao-san-pham','backEnd\ProductController@save')->name('product.save');
-
-});
-
-//Tài khoản
-Route::group(['prefix' => 'tai-khoan'], function() {
-    Route::get('/danh-sach/{status}','backEnd\UserController@list')->name('user.list');
-    Route::get('/trang-tao-tai-khoan','backEnd\UserController@add')->name('user.add');
-    Route::post('/tao-tai-khoan','backEnd\UserController@save')->name('user.save');
-    Route::post('/xoa-tai-khoan','backEnd\UserController@delete')->name('user.delete');
-    Route::get('/trang-sua-tai-khoan/{id}','backEnd\UserController@edit')->name('user.edit');
-    Route::post('/sua-tai-khoan/{id}','backEnd\UserController@update')->name('user.update');
+Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function (){
+    Route::get('/', 'backEnd\AdminController@getHome')->name('get.home');
+    // Quản lý tài khoản
+    Route::group(['prefix' => 'tai-khoan'], function() {
+        Route::get('/danh-sach/{status}','backEnd\UserController@list')->name('user.list');
+        Route::get('/tao-tai-khoan','backEnd\UserController@add')->name('user.add');
+        Route::post('/tao-tai-khoan','backEnd\UserController@save')->name('user.save');
+        Route::post('/xoa-tai-khoan','backEnd\UserController@delete')->name('user.delete');
+        Route::get('/trang-sua-tai-khoan/{id}','backEnd\UserController@edit')->name('user.edit');
+        Route::post('/sua-tai-khoan/{id}','backEnd\UserController@update')->name('user.update');
+    });
+    // Quản lý danh mục
+    Route::group(['prefix' => 'danh-muc'], function() {
+        Route::get('/','backEnd\CategoryController@index')->name('category.index');
+        Route::get('/tao-danh-muc','backEnd\CategoryController@create')->name('category.create');
+        Route::post('/tao-danh-muc','backEnd\CategoryController@store')->name('category.store');
+        Route::get('/sua-danh-muc/{id}','backEnd\CategoryController@edit')->name('category.edit');
+        Route::post('/sua-danh-muc/{id}','backEnd\CategoryController@update')->name('category.update');
+        Route::post('/xoa-danh-muc','backEnd\CategoryController@delete')->name('category.delete');
+        Route::post('/sua-trang-thai','backEnd\CategoryController@status')->name('category.status');
+    });
+    //Quản lý sản phẩm
+    Route::group(['prefix' => 'san-pham'], function() {
+        Route::get('/','backEnd\ProductController@index')->name('product.index');
+        Route::get('/tao-san-pham','backEnd\ProductController@create')->name('product.create');
+        Route::post('/tao-san-pham','backEnd\ProductController@store')->name('product.store');
+        Route::get('/sua-san-pham/{id}', 'backEnd\CategoryController@edit')->name('product.update');
+        Route::get('/sua-san-pham/{id}', 'backEnd\CategoryController@update')->name('product.edit');
+        Route::get('/xoa-san-pham', 'backEnd\CategoryController@update')->name('product.delete');
+        Route::get('/sua-trang-thai-san-pham', 'backEnd\CategoryController@status')->name('product.status');
+    });
 });
 
 //Client
 Route::get('/', 'Client\HomeController@index')->name('home');
 Route::get('gioi-thieu', 'Client\AboutController@index')->name('about');
-Route::get('san-pham', 'Client\ProductController@index')->name('product');
+//Route::get('san-pham', 'Client\ProductController@index')->name('product');
 Route::get('bo-suu-tap', 'Client\GalleryController@index')->name('gallery');
 Route::get('lien-he', 'Client\ContactController@index')->name('contact');
 Route::get('gio-hang', 'Client\CartController@index')->name('cart');
 Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
 
 
-
-
-// hiếu

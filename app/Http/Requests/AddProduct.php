@@ -51,7 +51,6 @@ class AddProduct extends FormRequest
             'category' =>'Danh mục',
             'status' =>'Trạng thái',
             'image' =>'Ảnh',
-
         ];
     }
 }

@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="{{ route('product.list') }}" style="text-decoration: none">Danh sách sản phẩm</a>
+                        <a href="{{ route('product.index') }}" style="text-decoration: none">Danh sách sản phẩm</a>
                     </li>
                 </ol>
             </nav>
@@ -22,34 +22,37 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('product.save') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('product.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Tên sản phẩm</label>
                             <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                             @error('name')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Mô tả </label>
                             <textarea class="form-control" name="desc" id="descCk" cols="30"
-                                rows="5">{{ old('desc') }}</textarea>
+                                      rows="5">{{ old('desc') }}</textarea>
                             @error('desc')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Chi tiết</label>
                             <textarea class="form-control" name="detail" id="detailCk" cols="30"
-                                rows="5">{{ old('detail') }}</textarea>
+                                      rows="5">{{ old('detail') }}</textarea>
                             @error('detail')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Danh mục</label>
-                            <select class="form-control mul-select" name="category[]" multiple>
+                            <select class="form-control mul-select" name="category" multiple>
                                 @foreach ($category as $value)
                                     <option value="{{ $value->id }}"
                                         {{ old('category') == $value->id ? 'selected' : '' }}>{{ $value->name }}
@@ -57,17 +60,18 @@
                                 @endforeach
                             </select>
                             @error('category')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Ảnh</label>
-                            <input type="file" class="form-control" name="image[]" multiple>
+                            <input type="file" class="form-control" name="image" multiple>
                             @error('image')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Trạng thái</label>
                             <select class="form-control" name="status">
@@ -75,16 +79,18 @@
                                 <option value="2" {{ old('status') == 2 ? 'selected' : '' }}>Tạm dừng</option>
                             </select>
                             @error('status')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Đơn vị đo</label>
                             <input type="text" class="form-control" name="unit" multiple>
                             @error('unit')
-                                <div class="alert alert-danger">{{ $message }}</div>
+                            <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
-                        </div><br>
+                        </div>
+                        <br>
                         <div class="form-group list_price ">
                             <div class="row">
                                 <div class="col-md-2">
@@ -114,7 +120,6 @@
                                 <br>
                             </div>
                         </div>
-
                         <br>
                         <button type="button" class="btn btn-success submitForm">Tạo</button>
                     </form>
@@ -124,15 +129,15 @@
     </main>
     <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
     <script>
         $('select').select2();
         CKEDITOR.replace('descCk');
         CKEDITOR.replace('detailCk');
         var stt = []
-        $(".add_input").click(function() {
-            $('.list_price').append(function() {
+        $(".add_input").click(function () {
+            $('.list_price').append(function () {
                 if (stt.length == 0) {
                     var number = 0
                     stt[0] = number
@@ -173,18 +178,18 @@
             var new_arr = [];
             for (var i = 0; i < stt.length; i++) {
                 if (stt[i] != number) {
-                     new_arr[i] = stt[i]
+                    new_arr[i] = stt[i]
                 }
             }
             stt = new_arr
             // console.log(stt)
             $(".btnrow" + number).remove();
         }
-        
-        $(".submitForm").click(function() {
+
+        $(".submitForm").click(function () {
             for (var i = 0; i < stt.length; i++) {
                 if (stt[i] != '') {
-                     
+
                 }
             }
             let name = $("input[name*='name']").val();
@@ -194,9 +199,6 @@
             let image = $("input[name*='image']").val();
             let status = $("select[name*='status']").val();
             let unit = $("input[name*='unit']").val();
-
-            // alert(image)
-            Console.log(image);
         })
     </script>
 

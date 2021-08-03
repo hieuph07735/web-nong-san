@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="custom-select-box">
-                   
+
                 </div>
                 <div class="right-phone-box">
                     <p>Số điện thoại liên hệ :  <a href="#">0988.888.888</a></p>
@@ -18,8 +18,8 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="login-box">
-                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-                        <option>Đăng ký</option>
+                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">
+                        <option value="{{route('user.add')}}">Đăng ký</option>
                         <option>Đăng nhập</option>
                     </select>
                 </div>
@@ -35,7 +35,7 @@
                             <li>
                                 <i class="fab fa-opencart"></i> Sale 20% với 10 khách hàng duy nhất khi nhập mã voucher: TX5236541
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -68,8 +68,8 @@
                     <li class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Sản phẩm</a>
                         <ul class="dropdown-menu">
-                            <li><a href="{{route('product')}}">Danh sách sản phẩm</a></li>
-                            <li><a href="{{route('product.detail')}}">Chi tiết sản phẩm</a></li>
+                            <li><a href="">Danh sách sản phẩm</a></li>
+                            <li><a href="">Chi tiết sản phẩm</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('gallery')}}">Danh mục sản phẩm</a></li>

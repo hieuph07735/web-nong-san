@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Model\Category;
+use App\Models\Category;
 
 class AddCategory extends FormRequest
 {
@@ -26,16 +26,10 @@ class AddCategory extends FormRequest
     public function rules()
     {
         return [
-            'name' =>[
-                'required','max:255',
-                Rule::unique('categories')->where(function ($query) {
-                    return $query->where('type', $this->type);
-                    // ->ignore($this->id,'id')  file  sửa thêm thuộc tính ngoại trừ
-                })
-            ],
-            'type' =>'required',
-            'image' =>'required|image|max:10000',
-            'status' =>'required',
+            'name' =>'required|unique:categories',
+            'description' =>'required',
+            'image' => 'required|image|max:10000',
+            'status' => 'required',
         ];
     }
 
@@ -45,14 +39,13 @@ class AddCategory extends FormRequest
             'max'=>':attribute không được vượt quá :max',
             'image' => ':attribute phải là ảnh',
             'unique'=>':attribute đã được sử dụng',
-            'image' => ':attribute phải là ảnh',
         ];
     }
 
     public function attributes(){
         return [
             'name' =>'Tên danh mục',
-            'type' =>'Loại danh mục',
+            'description' =>'Mô tả',
             'image' =>'Ảnh',
             'status' =>'Trạng thái',
         ];

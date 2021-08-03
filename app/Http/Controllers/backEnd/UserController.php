@@ -31,7 +31,7 @@ class UserController extends Controller
                 $path = $request->avatar->storeAs(
                     'user_avatar', $filename, 'public'
                 );
-                $avatar = "storage/".$path;  
+                $avatar = "storage/".$path;
             }
             User::insert([
                 'name' => $request->name,
@@ -43,14 +43,14 @@ class UserController extends Controller
                 'status' => $request->status,
             ]);
             $status = 1;
-        } 
-        catch (Exception $e) 
-        {   
-            $status = 2; 
-        } 
+        }
+        catch (Exception $e)
+        {
+            $status = 2;
+        }
         $data = User::all();
         return redirect()->route('user.list',compact('status'));
-        
+
     }
 
     public function delete(Request $request){
@@ -59,11 +59,11 @@ class UserController extends Controller
             $flight = User::find($request->id);
             $flight->status = 3;
             $flight->save();
-            $status = 1; 
-        } 
-        catch (Exception $e) 
-        {   
-            $status = 2; 
+            $status = 1;
+        }
+        catch (Exception $e)
+        {
+            $status = 2;
         }
         return response()->json(['status' => $status]);
     }
@@ -82,7 +82,7 @@ class UserController extends Controller
                 $path = $request->avatar->storeAs(
                     'user_avatar', $filename, 'public'
                 );
-                $avatar = "storage/".$path;  
+                $avatar = "storage/".$path;
             }
 
             $flight = User::find($id);
@@ -98,10 +98,10 @@ class UserController extends Controller
             }
             $flight->save();
             $status = 3;
-        } 
-        catch (Exception $e) 
-        {   
-            $status = 4; 
+        }
+        catch (Exception $e)
+        {
+            $status = 4;
         }
         return redirect()->route('user.list',compact('status'));
     }

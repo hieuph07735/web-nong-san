@@ -11,7 +11,7 @@ Sửa danh mục
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{{route('category.list')}}" style="text-decoration: none">Danh sách danh mục</a>
+              <a href="{{route('category.index')}}" style="text-decoration: none">Danh sách danh mục</a>
             </li>
           </ol>
         </nav>
@@ -20,7 +20,7 @@ Sửa danh mục
             <div class="card-header">
                 Sửa danh mục
             </div>
-            
+
             <div class="card-body">
                 <form action="{{route('category.update',['id'=>$data->id])}}" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -40,7 +40,7 @@ Sửa danh mục
                     </div><br>
                     <div class="form-group">
                         <label for="exampleFormControlSelect1" class="breadcrumb-item active">Loại danh mục</label>
-                        <select class="form-control" name="type"> 
+                        <select class="form-control" name="type">
                           <option value="1" {{$data->type == 1 ?"selected":''}}>Sản phẩm</option>
                           <option value="2" {{$data->type == 2 ?"selected":''}}>Bài viết</option>
                         </select>
@@ -51,7 +51,7 @@ Sửa danh mục
                     <br>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1" class="breadcrumb-item active">Trạng thái</label>
-                      <select class="form-control" name="status"> 
+                      <select class="form-control" name="status">
                         <option value="1" {{$data->status == 1 ?"selected":''}}>Hoạt động</option>
                         <option value="2" {{$data->status == 2 ?"selected":''}}>Tạm dừng</option>
                       </select>

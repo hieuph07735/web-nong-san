@@ -25,15 +25,10 @@ class EditCategory extends FormRequest
     public function rules()
     {
         return [
-            'name' =>[
-                'required','max:255',
-                Rule::unique('categories')->ignore($this->id,'id')->where(function ($query) {
-                    return $query->where('type', $this->type);
-                    //   file  sửa thêm thuộc tính ngoại trừ
-                })
-            ],
-            'type' =>'required',
-            'status' =>'required',
+            'name' =>'required|unique:categories',
+            'description' =>'required',
+            'image' => 'required|image|max:10000',
+            'status' => 'required',
         ];
     }
 
@@ -49,7 +44,8 @@ class EditCategory extends FormRequest
     public function attributes(){
         return [
             'name' =>'Tên danh mục',
-            'type' =>'Loại danh mục',
+            'description' =>'Mô tả',
+            'image' =>'Ảnh',
             'status' =>'Trạng thái',
         ];
     }

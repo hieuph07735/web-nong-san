@@ -25,7 +25,7 @@ class EditCategory extends FormRequest
     public function rules()
     {
         return [
-            'name' =>'required|unique:categories',
+            'name' =>'required',
             'description' =>'required',
             'image' => 'required|image|max:10000',
             'status' => 'required',

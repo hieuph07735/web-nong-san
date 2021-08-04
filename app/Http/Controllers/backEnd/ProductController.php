@@ -23,7 +23,6 @@ class ProductController extends Controller
     }
 
     public function store(AddProduct $request){
-        dd($request->all());
         try {
             if ($request->hasFile('image')) {
                 $extension = $request->image->extension();

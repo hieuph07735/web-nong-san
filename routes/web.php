@@ -37,22 +37,32 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
     // Quản lý danh mục
     Route::group(['prefix' => 'danh-muc'], function() {
         Route::get('/','backEnd\CategoryController@index')->name('category.index');
-        Route::get('/tao-danh-muc','backEnd\CategoryController@create')->name('category.create');
-        Route::post('/tao-danh-muc','backEnd\CategoryController@store')->name('category.store');
-        Route::get('/sua-danh-muc/{id}','backEnd\CategoryController@edit')->name('category.edit');
-        Route::post('/sua-danh-muc/{id}','backEnd\CategoryController@update')->name('category.update');
-        Route::post('/xoa-danh-muc','backEnd\CategoryController@delete')->name('category.delete');
+        Route::get('/tao-moi','backEnd\CategoryController@create')->name('category.create');
+        Route::post('/tao-moi','backEnd\CategoryController@store')->name('category.store');
+        Route::get('/sua/{id}','backEnd\CategoryController@edit')->name('category.edit');
+        Route::post('/sua/{id}','backEnd\CategoryController@update')->name('category.update');
+        Route::post('/xoa','backEnd\CategoryController@delete')->name('category.delete');
         Route::post('/sua-trang-thai','backEnd\CategoryController@status')->name('category.status');
+    });
+    //Quản lý loại sản phẩm
+    Route::group(['prefix' => 'loai-san-pham'], function() {
+        Route::get('/','backEnd\TypeProductController@index')->name('type_product.index');
+        Route::get('/tao-moi','backEnd\TypeProductController@create')->name('type_product.create');
+        Route::post('/tao-moi','backEnd\TypeProductController@store')->name('type_product.store');
+        Route::get('/sua/{id}','backEnd\TypeProductController@edit')->name('type_product.edit');
+        Route::post('/sua/{id}','backEnd\TypeProductController@update')->name('type_product.update');
+        Route::post('/xoa','backEnd\TypeProductController@delete')->name('type_product.delete');
+        Route::post('/sua-trang-thai','backEnd\TypeProductController@status')->name('type_product.status');
     });
     //Quản lý sản phẩm
     Route::group(['prefix' => 'san-pham'], function() {
         Route::get('/','backEnd\ProductController@index')->name('product.index');
-        Route::get('/tao-san-pham','backEnd\ProductController@create')->name('product.create');
-        Route::post('/tao-san-pham','backEnd\ProductController@store')->name('product.store');
-        Route::get('/sua-san-pham/{id}', 'backEnd\CategoryController@edit')->name('product.update');
-        Route::get('/sua-san-pham/{id}', 'backEnd\CategoryController@update')->name('product.edit');
-        Route::get('/xoa-san-pham', 'backEnd\CategoryController@update')->name('product.delete');
-        Route::get('/sua-trang-thai-san-pham', 'backEnd\CategoryController@status')->name('product.status');
+        Route::get('/tao-moi','backEnd\ProductController@create')->name('product.create');
+        Route::post('/tao-moi','backEnd\ProductController@store')->name('product.store');
+        Route::get('/sua/{id}', 'backEnd\CategoryController@edit')->name('product.update');
+        Route::get('/sua/{id}', 'backEnd\CategoryController@update')->name('product.edit');
+        Route::get('/xoa', 'backEnd\CategoryController@update')->name('product.delete');
+        Route::post('/sua-trang-thai', 'backEnd\CategoryController@status')->name('product.status');
     });
 });
 

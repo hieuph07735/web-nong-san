@@ -17,7 +17,6 @@ class ProductController extends Controller
         foreach ($datas as $data) {
             $category = TypeProduct::query()->find($data->category_id);
             $data->name_caterogy = $category->name ?? "";
-            $data->expiry = strtotime('+10 day', strtotime($data->quality));
         }
         return view('backEnd.products.list')->with(compact('datas', 'status'));
     }
@@ -27,8 +26,7 @@ class ProductController extends Controller
         return view('backEnd.products.add',compact('type_product'));
     }
 
-    public function store(Request $request){
-        dd($request->all());
+    public function store(AddProduct $request){
         try {
             if ($request->hasFile('image')) {
                 $extension = $request->image->extension();

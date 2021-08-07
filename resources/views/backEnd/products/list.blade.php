@@ -28,12 +28,6 @@ Danh sách sản phẩm
                             <th>Loại</th>
                             <th>Mô tả</th>
                             <th>Ảnh</th>
-                            <th>Số lượng</th>
-                            <th>Giá</th>
-                            <th>Giá giảm</th>
-                            <th>Nhà cung cấp</th>
-                            <th>Ngày sản xuất</th>
-                            <th>Hạn sử dụng</th>
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -45,12 +39,6 @@ Danh sách sản phẩm
                             <th>Loại</th>
                             <th>Mô tả</th>
                             <th>Ảnh</th>
-                            <th>Số lượng</th>
-                            <th>Giá</th>
-                            <th>Giá giảm</th>
-                            <th>Nhà cung cấp</th>
-                            <th>Ngày sản xuất</th>
-                            <th>Hạn sử dụng</th>
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -63,12 +51,6 @@ Danh sách sản phẩm
                             <td>{{$value->type_product_id}}</td>
                             <td>{{$value->description}}</td>
                             <td><img src="{{$value->image}}" style="width: 100px"></td>
-                            <td>{{$value->amount}}</td>
-                            <td>{{$value->price}}</td>
-                            <td>{{$value->discount_price}}</td>
-                            <td>{{$value->unit}}</td>
-                            <td>{{$value->quality}}</td>
-                            <td>{{$value->expiry}}</td>
                             <td>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input status_type_product" type="checkbox"

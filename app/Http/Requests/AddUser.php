@@ -27,13 +27,8 @@ class AddUser extends FormRequest
     {
         return [
             'name' =>'required|max:255',
-            'phone' =>'required|regex:/^[0][0-9]{9}$/',
+            'phone' =>'required|unique:users|regex:/^[0][0-9]{9}$/',
             'email' =>'required|email|unique:users',
-            'email' =>[
-                'required','email',
-                Rule::unique('users')->ignore(3,'status')
-            ],
-            'avatar' =>'required|image',
             'password' =>'required|max:255',
             'password_confirmation' =>'required|max:255|same:password',
             'role' =>'required',
@@ -45,7 +40,6 @@ class AddUser extends FormRequest
         return [
             'required'=>':attribute không được để trống',
             'max'=>':attribute không được vượt quá :max',
-            'image' => ':attribute phải là ảnh',
             'unique'=>':attribute đã được sử dụng',
             'regex'=>':attribute không đúng định dạng số điện thoại',
             'email'=>':attribute không đúng định dạng',
@@ -59,12 +53,11 @@ class AddUser extends FormRequest
             'name' =>'Họ tên',
             'phone' =>'Số điện thoại',
             'email' =>'Email',
-            'avatar' =>'Ảnh đại diện',
             'password' =>'Mật khẩu',
             'password_confirmation' =>'Mật khẩu nhập lại',
             'role' =>'Quyền',
             'status' =>'Trạng thái',
-            
+
         ];
     }
 }

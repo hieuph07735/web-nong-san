@@ -4,22 +4,26 @@ namespace App\Http\Controllers\backEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
-use App\Model\Category;
 use App\Http\Requests\AddProduct;
 use App\Http\Requests\EditProduct;
-
+use App\Models\TypeProduct;
+use http\Env\Request;
 
 class ProductController extends Controller
 {
     public function index(){
         $status = 0;
-        $data = Product::all();
-        return view('backEnd.products.list')->with(compact('data', 'status'));
+        $datas = Product::all();
+        foreach ($datas as $data) {
+            $category = TypeProduct::query()->find($data->category_id);
+            $data->name_caterogy = $category->name ?? "";
+        }
+        return view('backEnd.products.list')->with(compact('datas', 'status'));
     }
 
     public function create(){
-        $category = Category::where('status',1)->where('type',1)->get();
-        return view('backEnd.products.add',compact('category'));
+        $type_product = TypeProduct::where('status',1)->get();
+        return view('backEnd.products.add',compact('type_product'));
     }
 
     public function store(AddProduct $request){

@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="{{route('user.list',['status'=>0])}}" style="text-decoration: none">Danh sách tài
+                        <a href="{{route('user.index',['status'=>0])}}" style="text-decoration: none">Danh sách tài
                             khoản</a>
                     </li>
                 </ol>
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('user.save')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Họ tên</label>
@@ -67,18 +67,10 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="breadcrumb-item active">Ảnh đại diện</label>
-                            <input type="file" class="form-control" name="avatar">
-                            @error('avatar')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <br>
-                        <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Quyền</label>
                             <select class="form-control" name="role">
-                                <option value="1" {{old('role') == 1 ?"selected":''}}>Khách hàng</option>
-                                <option value="2" {{old('role') == 2 ?"selected":''}}>Quản trị</option>
+                                <option value="0" {{old('role') == 0 ?"selected":''}}>Khách hàng</option>
+                                <option value="1" {{old('role') == 1 ?"selected":''}}>Quản trị</option>
                             </select>
                             @error('role')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -88,8 +80,8 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Trạng thái</label>
                             <select class="form-control" name="status">
-                                <option value="1" {{old('status') == 1 ?"selected":''}}>Hoạt động</option>
-                                <option value="2" {{old('status') == 2 ?"selected":''}}>Tạm dừng</option>
+                                <option value="0" {{old('status') == 0 ?"selected":''}}>Hoạt động</option>
+                                <option value="1" {{old('status') == 1 ?"selected":''}}>Tạm dừng</option>
                             </select>
                             @error('type')
                             <div class="alert alert-danger">{{ $message }}</div>

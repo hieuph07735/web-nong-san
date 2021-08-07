@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $table = 'users';
-    protected $fillable = ['name','phone','avatar','role','stastus','email','email_verified_at','password','remember_token'];
+    protected $fillable = ['name','phone','role','stastus','email','email_verified_at','password','remember_token'];
 
     public function orders(){
         return $this->hasMany(Order::class);

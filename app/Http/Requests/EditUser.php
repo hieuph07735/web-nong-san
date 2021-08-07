@@ -28,14 +28,7 @@ class EditUser extends FormRequest
         return [
             'name' =>'required|max:255',
             'phone' =>'required|regex:/^[0][0-9]{9}$/',
-            'email' =>'required|email|unique:users',
-            'email' =>[
-                'required','email',
-                Rule::unique('users')->ignore($this->id,'id')->where(function ($query) {
-                    return $query->where('status','!=', 3);
-                })
-            ],
-            'avatar' =>'image',
+            'email' =>'required|email|',
             'password' =>'required|max:255',
             'password_confirmation' =>'required|max:255|same:password',
             'role' =>'required',
@@ -47,7 +40,6 @@ class EditUser extends FormRequest
         return [
             'required'=>':attribute không được để trống',
             'max'=>':attribute không được vượt quá :max',
-            'image' => ':attribute phải là ảnh',
             'unique'=>':attribute đã được sử dụng',
             'regex'=>':attribute không đúng định dạng số điện thoại',
             'email'=>':attribute không đúng định dạng',
@@ -61,12 +53,11 @@ class EditUser extends FormRequest
             'name' =>'Họ tên',
             'phone' =>'Số điện thoại',
             'email' =>'Email',
-            'avatar' =>'Ảnh đại diện',
             'password' =>'Mật khẩu',
             'password_confirmation' =>'Mật khẩu nhập lại',
             'role' =>'Quyền',
             'status' =>'Trạng thái',
-            
+
         ];
     }
 }

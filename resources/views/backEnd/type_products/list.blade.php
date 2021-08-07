@@ -50,6 +50,7 @@
                                 <td>{{$value->name}}</td>
                                 <td>{{$value->description}}</td>
                                 <td>{{$value->name_caterogy}}</td>
+                               
                                 <td><img src="{{$value->image}}" style="width: 100px"></td>
                                 <td>
                                     <div class="form-check form-switch">

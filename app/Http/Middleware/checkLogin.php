@@ -19,7 +19,7 @@ class checkLogin
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role == 1 && $user->status == 1) {
+            if ($user->role == 1 && $user->status == 0) {
                 return $next($request);
             } else {
                 Auth::logout();
@@ -27,11 +27,6 @@ class checkLogin
                 return redirect()->route('get.login')->with([
                     'error' => 'Lỗi! bạn không được phép đăng nhập'
                 ]);
-                /* Đem đoạn này vào blade để show
-                @if(session()->has('error'))
-                    {{ session()->get('error') }}
-                @endif
-                */
             }
         } else {
             return redirect()->route('get.login');

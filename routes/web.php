@@ -20,19 +20,19 @@ Route::post('/register', 'AuthController@storeUser')->name('post.register');
 Route::group(['prefix' => 'quan-tri'], function (){
     Route::get('/dang-nhap', 'AuthController@getLogin')->name('get.login');
     Route::post('/dang-nhap', 'AuthController@postLogin')->name('post.login');
-    Route::get('/logout', 'AuthController@logout')->name('get.logout');
+    Route::get('/dang-xuat', 'AuthController@logout')->name('get.logout');
 });
 
 Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function (){
     Route::get('/', 'backEnd\AdminController@getHome')->name('get.home');
     // Quản lý tài khoản
     Route::group(['prefix' => 'tai-khoan'], function() {
-        Route::get('/danh-sach/{status}','backEnd\UserController@list')->name('user.list');
-        Route::get('/tao-tai-khoan','backEnd\UserController@add')->name('user.add');
-        Route::post('/tao-tai-khoan','backEnd\UserController@save')->name('user.save');
-        Route::post('/xoa-tai-khoan','backEnd\UserController@delete')->name('user.delete');
-        Route::get('/trang-sua-tai-khoan/{id}','backEnd\UserController@edit')->name('user.edit');
-        Route::post('/sua-tai-khoan/{id}','backEnd\UserController@update')->name('user.update');
+        Route::get('/danh-sach/{status}','backEnd\UserController@index')->name('user.index');
+        Route::get('/tao-moi','backEnd\UserController@create')->name('user.create');
+        Route::post('/tao-moi','backEnd\UserController@store')->name('user.store');
+        Route::get('/sua/{id}','backEnd\UserController@edit')->name('user.edit');
+        Route::post('/sua/{id}','backEnd\UserController@update')->name('user.update');
+        Route::post('/xoa','backEnd\UserController@delete')->name('user.delete');
     });
     // Quản lý danh mục
     Route::group(['prefix' => 'danh-muc'], function() {

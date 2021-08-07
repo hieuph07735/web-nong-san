@@ -22,6 +22,7 @@ class TypeProductController extends Controller
             $category = Category::query()->find($data->category_id);
             $data->name_caterogy = $category->name ?? "";
         }
+        //dd($datas);
         return view('backEnd.type_products.list', compact('datas', 'status'));
     }
 
@@ -46,7 +47,6 @@ class TypeProductController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'category_id' => $request->category_id,
-                'short_description' => '1',
                 'image' => $image,
                 'status' => $request->status,
             ]);
@@ -54,17 +54,17 @@ class TypeProductController extends Controller
         } catch (Exception $e) {
             $status = 2;
         }
-        $data = TypeProduct::all();
-        return view('backEnd.type_products.list', compact('data', 'status'));
+        $datas = TypeProduct::all();
+        return view('backEnd.type_products.list', compact('datas', 'status'));
     }
 
     public function edit(Request $request, $id)
     {
-        $data = TypeProduct::find($id);
-        $category = Category::query()->find($data->category_id);
-        $data->name_caterogy = $category->name ?? "";
+        $datas = TypeProduct::find($id);
+        $category = Category::query()->find($datas->category_id);
+        $datas->name_caterogy = $category->name ?? "";
         $data_category = Category::all();
-        return view('backEnd.type_products.edit', compact('data', 'data_category'));
+        return view('backEnd.type_products.edit', compact('datas', 'data_category'));
     }
 
     public function update(EditTypeProduct $request, $id)

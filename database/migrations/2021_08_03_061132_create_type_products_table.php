@@ -16,10 +16,10 @@ class CreateTypeProductsTable extends Migration
         Schema::create('type_products', function (Blueprint $table) {
             $table->id();
             $table->integer('category_id');
-            $table->string('name');
-            $table->string('description');
-            $table->string('image');
-            $table->integer('status');
+            $table->string('name')->unique();
+            $table->string('description')->nullable();
+            $table->string('image')->nullable();
+            $table->boolean('status')->default(0);
             $table->timestamps();
         });
     }

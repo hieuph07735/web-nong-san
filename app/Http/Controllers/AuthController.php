@@ -10,33 +10,32 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-//    public function register()
-//    {
-//        return view('auth.register');
-//    }
-//
-//    public function storeUser(Request $request)
-//    {
-//        $request->validate([
-//            'name' => 'required|string|max:255',
-//            'email' => 'required|string|email|max:255|unique:users',
-//            'phone' => 'required',
-//            'password' => 'required|string|min:8|confirmed',
-//            'password_confirmation' => 'required',
-//        ]);
-//
-//        User::create([
-//            'name' => $request->name,
-//            'avatar' => '',
-//            'email' => $request->email,
-//            'phone' => $request->phone,
-//            'password' => Hash::make($request->password),
-//            'role' => 0,
-//            'status' => 1,
-//        ]);
-//
-//        return redirect('/');
-//    }
+    public function register()
+    {
+        return view('auth.register');
+    }
+
+    public function storeUser(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users',
+            'phone' => 'required',
+            'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required',
+        ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'password' => Hash::make($request->password),
+            'role' => 1,
+            'status' => 1,
+        ]);
+
+        return redirect('/');
+    }
 
     public function getLogin()
     {
@@ -59,7 +58,6 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             return redirect()->route('get.home');
         }
-
         return redirect()->route('get.login')->with('error', 'Bạn đã điền sai thông tin đăng nhập');
     }
 

@@ -16,7 +16,7 @@
 
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="{{ route('user.add') }}" class="btn btn-success">Thên mới</a>
+                    <a href="{{ route('user.create') }}" class="btn btn-success">Thên mới</a>
                 </div>
 
                 <div class="card-body">
@@ -27,7 +27,6 @@
                                 <th>Tên</th>
                                 <th>Sđt</th>
                                 <th>Email</th>
-                                <th>Ảnh đại diện</th>
                                 <th>Quyền</th>
                                 <th>Trạng thái</th>
                                 <th>Hành động</th>
@@ -39,7 +38,6 @@
                                 <th>Tên</th>
                                 <th>Sđt</th>
                                 <th>Email</th>
-                                <th>Ảnh đại diện</th>
                                 <th>Quyền</th>
                                 <th>Trạng thái</th>
                                 <th>Hành động</th>
@@ -54,14 +52,14 @@
                                     <td>{{ $value->email }}</td>
                                     <td><img src="{{ $value->avatar }}" style="width: 100px"></td>
                                     <td>
-                                        @if ($value->role == 1)
+                                        @if ($value->role == 0)
                                             <span class="badge rounded-pill bg-info">Khách hàng</span>
                                         @else
                                             <span class="badge rounded-pill bg-info text-dark">Quản trị</span>
                                         @endif
                                     </td>
                                     <td>
-                                        @if ($value->status == 1)
+                                        @if ($value->status == 0)
                                             <span class="badge rounded-pill bg-success">Hoạt động</span>
                                         @else
                                             <span class="badge rounded-pill bg-danger">Tạm ngưng</span>

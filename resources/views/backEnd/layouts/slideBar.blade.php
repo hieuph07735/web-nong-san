@@ -9,7 +9,7 @@
                 </a>
 
                 <div class="sb-sidenav-menu-heading">Quản lý</div>
-                <a class="nav-link" href="{{route('user.list',['status'=>0])}}">
+                <a class="nav-link" href="{{route('user.index',['status'=>0])}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-people-fill"></i></div>
                     User
                 </a>

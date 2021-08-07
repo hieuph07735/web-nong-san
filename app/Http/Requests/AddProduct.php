@@ -24,10 +24,14 @@ class AddProduct extends FormRequest
     public function rules()
     {
         return [
+            'type_product_id' => 'required|unique:products',
             'name' =>'required|max:255',
-            'desc' =>'required|max:255',
-            'detail' =>'required',
-            'category' =>'required',
+            'description' =>'required|max:255',
+            'quality' =>'required',
+            'amount' =>'required',
+            'price' =>'required',
+            'discount_price' =>'required',
+            'unit' => 'required',
             'status' =>'required',
             'image' =>'required|image',
         ];
@@ -44,10 +48,14 @@ class AddProduct extends FormRequest
 
     public function attributes(){
         return [
+            'type_product_id' => 'Loại sản phẩm',
             'name' =>'Tên sản phẩm',
-            'desc' =>'Mô tả',
-            'detail' =>'Chi tiết',
-            'category' =>'Danh mục',
+            'description' =>'Mô tả sản phẩm',
+            'quality' =>'Thời gian nhập',
+            'amount' => 'Số lượng',
+            'price' =>'Giá',
+            'discount_price' =>'Giá giảm giá',
+            'unit' => 'Nhà cung cấp',
             'status' =>'Trạng thái',
             'image' =>'Ảnh',
         ];

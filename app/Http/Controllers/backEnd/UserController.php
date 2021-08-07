@@ -14,30 +14,21 @@ use File;
 
 class UserController extends Controller
 {
-    public function list($status){
-        $data = User::where('status', '!=' , 3)->get();
+    public function index($status){
+        $data = User::all();
         return view('backEnd.users.list',compact('data','status'));
     }
 
-    public function add(){
+    public function create(){
         return view('backEnd.users.add');
     }
 
-    public function save(AddUser $request){
+    public function store(AddUser $request){
         try {
-            if($request->hasFile('avatar')){
-                $extension = $request->avatar->extension();
-                $filename =  uniqid(). "." . $extension;
-                $path = $request->avatar->storeAs(
-                    'user_avatar', $filename, 'public'
-                );
-                $avatar = "storage/".$path;
-            }
             User::insert([
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'email' => $request->email,
-                'avatar' => $avatar,
                 'password' => $request->password,
                 'role' => $request->role,
                 'status' => $request->status,
@@ -48,8 +39,7 @@ class UserController extends Controller
         {
             $status = 2;
         }
-        $data = User::all();
-        return redirect()->route('user.list',compact('status'));
+        return redirect()->route('user.index',compact('status'));
 
     }
 
@@ -75,16 +65,6 @@ class UserController extends Controller
 
     public function update(EditUser $request , $id){
         try {
-            $avatar = 1;
-            if($request->hasFile('avatar')){
-                $extension = $request->avatar->extension();
-                $filename =  uniqid(). "." . $extension;
-                $path = $request->avatar->storeAs(
-                    'user_avatar', $filename, 'public'
-                );
-                $avatar = "storage/".$path;
-            }
-
             $flight = User::find($id);
             $flight->name = $request->name;
             $flight->phone = $request->phone;
@@ -92,10 +72,6 @@ class UserController extends Controller
             $flight->password = $request->password;
             $flight->role = $request->role;
             $flight->status = $request->status;
-            if($avatar != 1){
-                File::delete($flight->avatar);
-                $flight->avatar = $avatar;
-            }
             $flight->save();
             $status = 3;
         }
@@ -103,6 +79,6 @@ class UserController extends Controller
         {
             $status = 4;
         }
-        return redirect()->route('user.list',compact('status'));
+        return redirect()->route('user.index',compact('status'));
     }
 }

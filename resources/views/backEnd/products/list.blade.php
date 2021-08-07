@@ -26,7 +26,12 @@ Danh sách sản phẩm
                             <th>STT</th>
                             <th>Tên</th>
                             <th>Loại</th>
+                            <th>Mô tả</th>
                             <th>Ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Giá giảm</th>
+                            <th>Nhà cung cấp</th>
                             <th>Ngày sản xuất</th>
                             <th>Hạn sử dụng</th>
                             <th>Trạng thái</th>
@@ -38,7 +43,12 @@ Danh sách sản phẩm
                             <th>STT</th>
                             <th>Tên</th>
                             <th>Loại</th>
+                            <th>Mô tả</th>
                             <th>Ảnh</th>
+                            <th>Số lượng</th>
+                            <th>Giá</th>
+                            <th>Giá giảm</th>
+                            <th>Nhà cung cấp</th>
                             <th>Ngày sản xuất</th>
                             <th>Hạn sử dụng</th>
                             <th>Trạng thái</th>
@@ -46,28 +56,35 @@ Danh sách sản phẩm
                         </tr>
                     </tfoot>
                     <tbody>
-                        {{-- @foreach($data as $key=>$value)
+                    @foreach($datas as $key=>$value)
                         <tr id="cate{{$value->id}}">
+                            <td>{{$key + 1}}</td>
                             <td>{{$value->name}}</td>
-                            <td>
-                                @if($value->type == 1)
-                                <span class="badge rounded-pill bg-success">Sản phẩm</span>
-                                @else
-                                <span class="badge rounded-pill bg-info text-dark">Bài viết</span>
-                                @endif
-                            </td>
+                            <td>{{$value->type_product_id}}</td>
+                            <td>{{$value->description}}</td>
                             <td><img src="{{$value->image}}" style="width: 100px"></td>
+                            <td>{{$value->amount}}</td>
+                            <td>{{$value->price}}</td>
+                            <td>{{$value->discount_price}}</td>
+                            <td>{{$value->unit}}</td>
+                            <td>{{$value->quality}}</td>
+                            <td>{{$value->expiry}}</td>
                             <td>
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input status_category" type="checkbox" data-categoryid="{{$value->id}}" {{$value->status == 1 ?"checked":''}}>
-                                  </div>
-                            </span>
+                                    <input class="form-check-input status_type_product" type="checkbox"
+                                           data-type_product_id="{{$value->id}}" {{$value->status == 1 ?"checked":''}}>
+                                </div>
+                                </span>
                             </td>
-                            <td><a href="{{route('category.edit',['id'=>$value->id])}}"><i class="bi bi-pencil text-warning"></i></a>
-                                <a class="delete_category" data-categoryid="{{$value->id}}"><i class="bi bi-trash text-danger"></i></a>
+                            <td><a href="{{route('type_product.edit',['id'=>$value->id])}}">
+                                    <i class="bi bi-pencil text-warning"></i>
+                                </a>
+                                <a class="delete_type_product" data-type_product_id="{{$value->id}}">
+                                    <i class="bi bi-trash text-danger"></i>
+                                </a>
                             </td>
                         </tr>
-                        @endforeach --}}
+                    @endforeach
                     </tbody>
                 </table>
             </div>

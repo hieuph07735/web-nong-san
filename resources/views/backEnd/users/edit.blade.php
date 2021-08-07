@@ -11,7 +11,7 @@ Sửa tài khoản
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="{{route('user.list',['status'=>0])}}" style="text-decoration: none">Danh sách tài khoản</a>
+              <a href="{{route('user.index',['status'=>0])}}" style="text-decoration: none">Danh sách tài khoản</a>
             </li>
           </ol>
         </nav>
@@ -20,7 +20,7 @@ Sửa tài khoản
             <div class="card-header">
                 Sửa tài khoản
             </div>
-            
+
             <div class="card-body">
                 <form action="{{route('user.update',['id'=>$data->id])}}" method="POST" enctype="multipart/form-data">
                   @csrf
@@ -33,7 +33,7 @@ Sửa tài khoản
                     </div><br>
                     <div class="form-group">
                       <label for="exampleInputEmail1" class="breadcrumb-item active">Số điện thoại</label>
-                      <input type="text" class="form-control" name="phone" value="{{$data->phone}}">
+                      <input type="text" class="form-control" name="phone" value="0{{$data->phone}}">
                       @error('phone')
                       <div class="alert alert-danger">{{ $message }}</div>
                       @enderror
@@ -60,18 +60,10 @@ Sửa tài khoản
                       @enderror
                     </div><br>
                     <div class="form-group">
-                      <label for="exampleInputEmail1" class="breadcrumb-item active" >Ảnh đại diện</label>
-                      <input type="file" class="form-control" name="avatar">
-                      <img src="{{ $data->avatar }}" style="width: 100px">
-                      @error('avatar')
-                      <div class="alert alert-danger">{{ $message }}</div>
-                      @enderror
-                    </div><br>
-                    <div class="form-group">
                       <label for="exampleFormControlSelect1" class="breadcrumb-item active">Quyền</label>
-                      <select class="form-control" name="role"> 
-                        <option value="1" {{$data->role == 1 ?"selected":''}}>Khách hàng</option>
-                        <option value="2" {{$data->role == 2 ?"selected":''}}>Quản trị</option>
+                      <select class="form-control" name="role">
+                          <option value="0" {{$data->role == 0 ?"selected":''}}>Khách hàng</option>
+                          <option value="1" {{$data->role == 1 ?"selected":''}}>Quản trị</option>
                       </select>
                       @error('role')
                       <div class="alert alert-danger">{{ $message }}</div>
@@ -79,9 +71,9 @@ Sửa tài khoản
                     </div><br>
                     <div class="form-group">
                       <label for="exampleFormControlSelect1" class="breadcrumb-item active">Trạng thái</label>
-                      <select class="form-control" name="status"> 
-                        <option value="1" {{$data->status == 1 ?"selected":''}}>Hoạt động</option>
-                        <option value="2" {{$data->status == 2 ?"selected":''}}>Tạm dừng</option>
+                      <select class="form-control" name="status">
+                        <option value="0" {{$data->status == 0 ?"selected":''}}>Hoạt động</option>
+                        <option value="1" {{$data->status == 1 ?"selected":''}}>Tạm dừng</option>
                       </select>
                       @error('type')
                       <div class="alert alert-danger">{{ $message }}</div>

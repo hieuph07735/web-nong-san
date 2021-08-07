@@ -31,7 +31,7 @@ class AuthController extends Controller
             'phone' => $request->phone,
             'password' => Hash::make($request->password),
             'role' => 1,
-            'status' => 1,
+            'status' => 0,
         ]);
 
         return redirect('/');

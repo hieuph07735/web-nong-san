@@ -4,10 +4,10 @@ namespace App\Http\Controllers\backEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\ProductImage;
 use App\Http\Requests\AddProduct;
 use App\Http\Requests\EditProduct;
 use App\Models\TypeProduct;
-use http\Env\Request;
 
 class ProductController extends Controller
 {
@@ -36,11 +36,18 @@ class ProductController extends Controller
                 );
                 $image = "storage/".$path;
             }
-            Product::insert([
+
+            $id_product = Product::insertGetId([
+                'type_product' => $request->type_product,
                 'name' => $request->name,
-                'desc' => $request->desc,
-                'detail' => $request->detail,
+                'description' => $request->description,
                 'status' => $request->status,
+            ]);
+
+            ProductImage::insert([
+                'product_id' => $id_product,
+                'path' => $image,
+                'sort' => 1,
             ]);
             $status = 1;
         }
@@ -48,8 +55,8 @@ class ProductController extends Controller
         {
             $status = 2;
         }
-        $data = Product::all();
+        $datas = Product::all();
 
-        return view('backEnd.products.list', compact('data', 'status'));
+        return view('backEnd.products.list', compact('datas', 'status'));
     }
 }

@@ -13,8 +13,8 @@ use App\Http\Controllers\backEnd\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Route::get('/register', 'AuthController@register')->name('get.register');
-//Route::post('/register', 'AuthController@storeUser')->name('post.register');
+Route::get('/register', 'AuthController@register')->name('get.register');
+Route::post('/register', 'AuthController@storeUser')->name('post.register');
 
 //Admin
 Route::group(['prefix' => 'quan-tri'], function (){
@@ -54,6 +54,8 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/xoa','backEnd\TypeProductController@delete')->name('type_product.delete');
         Route::post('/sua-trang-thai','backEnd\TypeProductController@status')->name('type_product.status');
     });
+    
+   
     //Quản lý sản phẩm
     Route::group(['prefix' => 'san-pham'], function() {
         Route::get('/','backEnd\ProductController@index')->name('product.index');
@@ -75,4 +77,4 @@ Route::get('lien-he', 'Client\ContactController@index')->name('contact');
 Route::get('gio-hang', 'Client\CartController@index')->name('cart');
 Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
 
-
+    

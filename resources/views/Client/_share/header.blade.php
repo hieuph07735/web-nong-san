@@ -19,7 +19,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="login-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">
-                        <option value="{{route('user.add')}}">Đăng ký</option>
+                        <option value="{{route('user.create')}}">Đăng ký</option>
                         <option>Đăng nhập</option>
                     </select>
                 </div>

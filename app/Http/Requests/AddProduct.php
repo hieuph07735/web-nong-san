@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+use App\Models\Product;
 
 class AddProduct extends FormRequest
 {
@@ -25,7 +27,6 @@ class AddProduct extends FormRequest
     {
         return [
             'type_product_id' => 'required',
-            'image_id' => 'required',
             'name' =>'required|max:255',
             'description' =>'required|max:255',
             'status' =>'required',
@@ -46,7 +47,6 @@ class AddProduct extends FormRequest
         return [
             'type_product_id' => 'Loại sản phẩm',
             'name' =>'Tên sản phẩm',
-            'image_id' => 'Ảnh',
             'description' =>'Mô tả sản phẩm',
             'status' =>'Trạng thái',
             'image' =>'Ảnh',

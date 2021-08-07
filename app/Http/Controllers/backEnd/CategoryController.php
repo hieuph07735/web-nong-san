@@ -13,8 +13,8 @@ class CategoryController extends Controller
 {
     public function index(){
         $status = 0;
-        $data = Category::all();
-        return view('backEnd.categories.list',compact('data','status'));
+        $datas = Category::all();
+        return view('backEnd.categories.list',compact('datas','status'));
     }
 
     public function create(){
@@ -34,7 +34,6 @@ class CategoryController extends Controller
             Category::insert([
                 'name' => $request->name,
                 'description' => $request->description,
-                'short_description' => '1',
                 'image' => $image,
                 'status' => $request->status,
             ]);
@@ -44,8 +43,8 @@ class CategoryController extends Controller
         {
             $status = 2;
         }
-        $data = Category::all();
-        return view('backEnd.categories.list',compact('data','status'));
+        $datas = Category::all();
+        return view('backEnd.categories.list',compact('datas','status'));
     }
 
     public function edit(Request $request ,$id){
@@ -80,8 +79,8 @@ class CategoryController extends Controller
         {
             $status = 4;
         }
-        $data = Category::all();
-        return view('backEnd.categories.list',compact('data','status'));
+        $datas = Category::all();
+        return view('backEnd.categories.list',compact('datas','status'));
     }
 
     public function status(Request $request){

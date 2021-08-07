@@ -48,7 +48,7 @@
                                 <tr id="user{{ $value->id }}">
                                     <td>{{ $key + 1 }}</td>
                                     <td>{{ $value->name }}</td>
-                                    <td>{{ $value->phone }}</td>
+                                    <td>0{{ $value->phone }}</td>
                                     <td>{{ $value->email }}</td>
                                     <td><img src="{{ $value->avatar }}" style="width: 100px"></td>
                                     <td>

@@ -46,7 +46,6 @@ class TypeProductController extends Controller
                 'name' => $request->name,
                 'description' => $request->description,
                 'category_id' => $request->category_id,
-                'short_description' => '1',
                 'image' => $image,
                 'status' => $request->status,
             ]);

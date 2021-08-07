@@ -42,7 +42,7 @@
                         </tr>
                         </tfoot>
                         <tbody>
-                        @foreach($data as $key=>$value)
+                        @foreach($datas as $key=>$value)
                             <tr id="cate{{$value->id}}">
                                 <td>{{$key + 1}}</td>
                                 <td>{{$value->name}}</td>

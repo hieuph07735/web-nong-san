@@ -30,7 +30,8 @@ class AddProduct extends FormRequest
             'name' =>'required|max:255',
             'description' =>'required|max:255',
             'status' =>'required',
-            'image' =>'required|image|max:10000',
+            'image' =>'required',
+            'image.*' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ];
     }
 
@@ -38,7 +39,7 @@ class AddProduct extends FormRequest
         return [
             'required'=>':attribute không được để trống',
             'max'=>':attribute không được vượt quá :max',
-            'image' => ':attribute phải là ảnh',
+            'image' => ':attribute phải là ảnh và thuộc các định dạng: jpeg,png,jpg,gif,svg',
             'unique'=>':attribute đã được sử dụng',
         ];
     }
@@ -49,7 +50,7 @@ class AddProduct extends FormRequest
             'name' =>'Tên sản phẩm',
             'description' =>'Mô tả sản phẩm',
             'status' =>'Trạng thái',
-            'image' =>'Ảnh',
+            'image' =>'Ảnh sản phẩm',
         ];
     }
 }

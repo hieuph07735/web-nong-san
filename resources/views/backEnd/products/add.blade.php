@@ -1,6 +1,6 @@
 @extends('backEnd.layouts.main')
 @section('title')
-    Tạo mới loại sản phẩm
+    Tạo mới sản phẩm
 @endsection
 @section('content')
     <main>
@@ -11,7 +11,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <a href="{{route('product.index')}}" style="text-decoration: none">Danh sách loại sản phẩm</a>
+                        <a href="{{route('product.index',['status'=>0])}}" style="text-decoration: none">Danh sách sản phẩm</a>
                     </li>
                 </ol>
             </nav>
@@ -34,7 +34,7 @@
                         <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Mô tả</label>
-                            <textarea  type="text" class="form-control" name="description" value="{{ old('description')}}"></textarea>
+                            <textarea  type="text" class="form-control" id="descCk" name="description" >{{ old('description')}}</textarea>
                             @error('description')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -42,9 +42,16 @@
                         <br>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Loại sản phẩm</label>
+<<<<<<< HEAD
                             <select class="form-control mul-select descCk" name="type_product_id">
                                 @foreach ($type_product as $value)
                                     <option value="{{ $value->id }}" >{{ $value->name }}
+=======
+                            <select class="form-control mul-select" name="type_product_id">
+                                @foreach ($type_product as $value)
+                                    <option value="{{ $value->id }}"
+                                        {{ old('type_product_id') == $value->id ? 'selected' : '' }}>{{ $value->name }}
+>>>>>>> bbe7b0c8cd83751c06713a221790a1aa7220c287
                                     </option>
                                 @endforeach
                             </select>
@@ -55,7 +62,11 @@
                         <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Ảnh</label>
+<<<<<<< HEAD
                             <input type="file" class="form-control" name="image[]" multiple >
+=======
+                            <input type="file" class="form-control" name="image[]" multiple>
+>>>>>>> bbe7b0c8cd83751c06713a221790a1aa7220c287
                             @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -78,6 +89,17 @@
             </div>
         </div>
     </main>
+<<<<<<< HEAD
     
+=======
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script>
+        $('select').select2();
+        CKEDITOR.replace('descCk');
+    </script>
+>>>>>>> bbe7b0c8cd83751c06713a221790a1aa7220c287
 @endsection
 

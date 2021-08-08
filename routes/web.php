@@ -80,4 +80,5 @@ Route::get('lien-he', 'Client\ContactController@index')->name('contact');
 Route::get('gio-hang', 'Client\CartController@index')->name('cart');
 Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
 
+
     

@@ -42,21 +42,20 @@
                         <br>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Loại sản phẩm</label>
-                            <select class="form-control mul-select" name="category_id" multiple>
+                            <select class="form-control mul-select descCk" name="type_product_id">
                                 @foreach ($type_product as $value)
-                                    <option value="{{ $value->id }}"
-                                        {{ old('category_id') == $value->id ? 'selected' : '' }}>{{ $value->name }}
+                                    <option value="{{ $value->id }}" >{{ $value->name }}
                                     </option>
                                 @endforeach
                             </select>
-                            @error('category_id')
+                            @error('type_product_id')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
                         <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Ảnh</label>
-                            <input type="file" class="form-control" name="image">
+                            <input type="file" class="form-control" name="image[]" multiple >
                             @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -64,7 +63,7 @@
                         <br>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Trạng thái</label>
-                            <select class="form-control" name="status">
+                            <select class="form-control" name="status" >
                                 <option value="1" {{old('status') == 1 ?"selected":''}}>Hoạt động</option>
                                 <option value="2" {{old('status') == 2 ?"selected":''}}>Tạm dừng</option>
                             </select>
@@ -79,4 +78,6 @@
             </div>
         </div>
     </main>
+    
 @endsection
+

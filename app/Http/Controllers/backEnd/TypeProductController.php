@@ -25,6 +25,11 @@ class TypeProductController extends Controller
         //dd($datas);
         return view('backEnd.type_products.list', compact('datas', 'status'));
     }
+    public function product_create(){
+        $type_product = TypeProduct::where('status',1)->get();
+        return view('backEnd.products.add',compact('type_product'));
+    }
+
 
     public function create()
     {

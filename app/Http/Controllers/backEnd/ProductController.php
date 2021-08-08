@@ -9,7 +9,6 @@ use App\Models\ProductImage;
 use App\Http\Requests\AddProduct;
 use App\Http\Requests\EditProduct;
 use App\Models\TypeProduct;
-use Illuminate\Http\Request;
 use File;
 
 
@@ -20,7 +19,7 @@ class ProductController extends Controller
         return view('backEnd.products.list')->with(compact('datas', 'status'));
     }
 
-    public function create(){
+    public function product_create(){
         $type_product = TypeProduct::where('status',1)->get();
         return view('backEnd.products.add',compact('type_product'));
     }

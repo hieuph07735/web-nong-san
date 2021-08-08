@@ -42,7 +42,7 @@
                         <br>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Danh mục</label>
-                            <select class="form-control mul-select" name="category_id" multiple>
+                            <select class="form-control mul-select" name="category_id">
                                 @foreach ($category as $value)
                                     <option value="{{ $value->id }}"
                                         {{ old('category_id') == $value->id ? 'selected' : '' }}>{{ $value->name }}

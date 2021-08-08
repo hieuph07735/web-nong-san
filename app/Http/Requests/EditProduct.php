@@ -25,15 +25,11 @@ class EditProduct extends FormRequest
     {
         return [
             'type_product_id' => 'required',
-            'name' => 'required|max:255',
-            'description' => 'required|max:255',
-            'quality' => 'required',
-            'amount' => 'required',
-            'price' => 'required',
-            'discount_price' => 'required',
-            'unit' => 'required',
-            'status' => 'required',
-            'image' => 'required|image',
+            'name' =>'required|max:255',
+            'description' =>'required|max:255',
+            'status' =>'required',
+            'image' =>'',
+            'image.*' =>'image|mimes:jpeg,png,jpg,gif,svg|max:10000',
         ];
     }
 
@@ -41,7 +37,7 @@ class EditProduct extends FormRequest
         return [
             'required'=>':attribute không được để trống',
             'max'=>':attribute không được vượt quá :max',
-            'image' => ':attribute phải là ảnh',
+            'image' => ':attribute phải là ảnh và thuộc các định dạng: jpeg,png,jpg,gif,svg',
             'unique'=>':attribute đã được sử dụng',
         ];
     }
@@ -51,13 +47,8 @@ class EditProduct extends FormRequest
             'type_product_id' => 'Loại sản phẩm',
             'name' =>'Tên sản phẩm',
             'description' =>'Mô tả sản phẩm',
-            'quality' =>'Thời gian nhập',
-            'amount' => 'Số lượng',
-            'price' =>'Giá',
-            'discount_price' =>'Giá giảm giá',
-            'unit' => 'Nhà cung cấp',
             'status' =>'Trạng thái',
-            'image' =>'Ảnh',
+            'image' =>'Ảnh sản phẩm',
         ];
     }
 }

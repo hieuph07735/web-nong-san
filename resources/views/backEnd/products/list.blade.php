@@ -24,6 +24,7 @@ Danh sách sản phẩm
                     <thead>
                         <tr>
                             <th>STT</th>
+                            <th>Mã đơn</th>
                             <th>Tên</th>
                             <th>Loại</th>
                             <th>Ảnh</th>
@@ -45,6 +46,7 @@ Danh sách sản phẩm
                     @foreach($datas as $key=>$value)
                         <tr id="pr{{$value->id}}">
                             <td>{{$key + 1}}</td>
+                            <td>{{$value->code_product}}</td>
                             <td>{{$value->name}}</td>
                             <?php
                                $type_pr = DB::table('type_products')->get();

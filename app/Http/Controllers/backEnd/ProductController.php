@@ -30,6 +30,7 @@ class ProductController extends Controller
         $pr->name = $request->name;
         $pr->description = $request->description;
         $pr->status = $request->status;
+        $pr->code_product = 'TX'.time().rand(100000, 999999);
         $pr->save();
 
 

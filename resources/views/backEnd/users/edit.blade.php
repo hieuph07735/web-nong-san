@@ -62,8 +62,8 @@ Sửa tài khoản
                     <div class="form-group">
                       <label for="exampleFormControlSelect1" class="breadcrumb-item active">Quyền</label>
                       <select class="form-control" name="role">
-                          <option value="0" {{$data->role == 0 ?"selected":''}}>Khách hàng</option>
-                          <option value="1" {{$data->role == 1 ?"selected":''}}>Quản trị</option>
+                          <option value="0" {{$data->role == 0 ?"selected":''}}>Admin</option>
+                          <option value="1" {{$data->role == 1 ?"selected":''}}>Nhân viên</option>
                       </select>
                       @error('role')
                       <div class="alert alert-danger">{{ $message }}</div>

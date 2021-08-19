@@ -50,12 +50,11 @@
                                     <td>{{ $value->name }}</td>
                                     <td>0{{ $value->phone }}</td>
                                     <td>{{ $value->email }}</td>
-                                    <td><img src="{{ $value->avatar }}" style="width: 100px"></td>
                                     <td>
                                         @if ($value->role == 0)
-                                            <span class="badge rounded-pill bg-info">Khách hàng</span>
+                                            <span class="badge rounded-pill bg-info">Admin</span>
                                         @else
-                                            <span class="badge rounded-pill bg-info text-dark">Quản trị</span>
+                                            <span class="badge rounded-pill bg-info text-dark">Nhân viên</span>
                                         @endif
                                     </td>
                                     <td>

@@ -69,8 +69,8 @@
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Quyền</label>
                             <select class="form-control" name="role">
-                                <option value="0" {{old('role') == 0 ?"selected":''}}>Khách hàng</option>
-                                <option value="1" {{old('role') == 1 ?"selected":''}}>Quản trị</option>
+                                <option value="0" {{old('role') == 0 ?"selected":''}}>Admin</option>
+                                <option value="1" {{old('role') == 1 ?"selected":''}}>Nhân viên</option>
                             </select>
                             @error('role')
                             <div class="alert alert-danger">{{ $message }}</div>

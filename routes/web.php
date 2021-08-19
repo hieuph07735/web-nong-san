@@ -55,8 +55,7 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/xoa','backEnd\TypeProductController@delete')->name('type_product.delete');
         Route::post('/sua-trang-thai','backEnd\TypeProductController@status')->name('type_product.status');
     });
-    
-   
+
     //Quản lý sản phẩm
     Route::group(['prefix' => 'san-pham'], function() {
         Route::get('/{status}','backEnd\ProductController@index')->name('product.index');
@@ -65,10 +64,10 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/sua/{id}', 'backEnd\ProductController@update')->name('product.update');
         Route::post('/xoa', 'backEnd\ProductController@delete')->name('product.delete');
         Route::post('/sua-trang-thai', 'backEnd\ProductController@status')->name('product.status');
-        
-    
+
+
     });
-    
+
 });
 
 //Client
@@ -81,4 +80,3 @@ Route::get('gio-hang', 'Client\CartController@index')->name('cart');
 Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
 
 
-    

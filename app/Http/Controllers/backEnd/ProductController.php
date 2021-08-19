@@ -98,11 +98,11 @@ class ProductController extends Controller
                 $flight->status = 1;
             }
             $flight->save();
-            $status = 1; 
-        } 
-        catch (Exception $e) 
-        {   
-            $status = 2; 
+            $status = 1;
+        }
+        catch (Exception $e)
+        {
+            $status = 2;
         }
         return response()->json(['status' => $status]);
     }
@@ -112,13 +112,13 @@ class ProductController extends Controller
             $flight = Product::find($request->id);
             $flight->status = 3;
             $flight->save();
-            $status = 1; 
-        } 
-        catch (Exception $e) 
-        {   
-            $status = 2; 
+            $status = 1;
+        }
+        catch (Exception $e)
+        {
+            $status = 2;
         }
         return response()->json(['status' => $status]);
     }
-    
+
 }

@@ -3,7 +3,7 @@
         <div class="sb-sidenav-menu">
             <div class="nav">
                 <div class="sb-sidenav-menu-heading"></div>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('get.home')}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-clipboard-data"></i></div>
                     Thống kê
                 </a>
@@ -28,9 +28,9 @@
                         <a class="nav-link" href="{{route('product.index',['status'=>0])}}">Sản phẩm</a>
                     </nav>
                 </div>
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{route('inventory.index')}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>
-                   Đơn hàng
+                   Quản lý kho hàng
                 </a>
             </div>
         </div>

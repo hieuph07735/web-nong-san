@@ -64,10 +64,18 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/sua/{id}', 'backEnd\ProductController@update')->name('product.update');
         Route::post('/xoa', 'backEnd\ProductController@delete')->name('product.delete');
         Route::post('/sua-trang-thai', 'backEnd\ProductController@status')->name('product.status');
-
-
     });
 
+    // Quản lý kho hàng
+    Route::group(['prefix' => 'quan-ly-kho-hang'], function () {
+        Route::get('/','backEnd\InventoryController@index')->name('inventory.index');
+        Route::get('/tao-moi','backEnd\InventoryController@create')->name('inventory.create');
+        Route::post('/tao-moi','backEnd\InventoryController@store')->name('inventory.store');
+        Route::get('/sua/{id}','backEnd\InventoryController@edit')->name('inventory.edit');
+        Route::post('/sua/{id}','backEnd\InventoryController@update')->name('inventory.update');
+        Route::post('/xoa','backEnd\InventoryController@destroy')->name('inventory.destroy');
+        Route::post('/sua-trang-thai','backEnd\InventoryController@status')->name('inventory.status');
+    });
 });
 
 //Client

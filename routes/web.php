@@ -13,27 +13,15 @@ use App\Http\Controllers\backEnd\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/register', 'AuthController@register')->name('get.register');
-Route::post('/register', 'AuthController@storeUser')->name('post.register');
-
 //Admin
-Route::group(['prefix' => 'quan-tri'], function (){
-    Route::get('/dang-nhap', 'AuthController@getLogin')->name('get.login');
-    Route::post('/dang-nhap', 'AuthController@postLogin')->name('post.login');
-    Route::get('/dang-xuat', 'AuthController@logout')->name('get.logout');
+Route::group(['prefix' => 'admin'], function (){
+    Route::get('/login', 'AuthController@getLogin')->name('get.login');
+    Route::post('/login', 'AuthController@postLogin')->name('post.login');
+    Route::get('/logout', 'AuthController@logout')->name('get.logout');
 });
 
 Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function (){
     Route::get('/', 'backEnd\AdminController@getHome')->name('get.home');
-    // Quản lý tài khoản
-    Route::group(['prefix' => 'tai-khoan'], function() {
-        Route::get('/danh-sach/{status}','backEnd\UserController@index')->name('user.index');
-        Route::get('/tao-moi','backEnd\UserController@create')->name('user.create');
-        Route::post('/tao-moi','backEnd\UserController@store')->name('user.store');
-        Route::get('/sua/{id}','backEnd\UserController@edit')->name('user.edit');
-        Route::post('/sua/{id}','backEnd\UserController@update')->name('user.update');
-        Route::post('/xoa','backEnd\UserController@delete')->name('user.delete');
-    });
     // Quản lý danh mục
     Route::group(['prefix' => 'danh-muc'], function() {
         Route::get('/','backEnd\CategoryController@index')->name('category.index');

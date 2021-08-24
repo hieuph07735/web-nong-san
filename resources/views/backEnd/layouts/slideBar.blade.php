@@ -9,10 +9,6 @@
                 </a>
 
                 <div class="sb-sidenav-menu-heading">Quản lý</div>
-                <a class="nav-link" href="{{route('user.index',['status'=>0])}}">
-                    <div class="sb-nav-link-icon"><i class="bi bi-people-fill"></i></div>
-                    Người dùng
-                </a>
                 <a class="nav-link" href="{{route('category.index')}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-bookmarks"></i></div>
                     Danh mục

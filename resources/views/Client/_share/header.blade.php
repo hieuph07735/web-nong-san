@@ -10,19 +10,13 @@
                 </div>
                 <div class="our-link">
                     <ul>
-                        <li><a href="#"><i class="fa fa-user s_color"></i> Tài khoản của tôi</a></li>
                         <li><a href="#"><i class="fas fa-location-arrow"></i> Vị trí cửa hàng</a></li>
                         <li><a href="#"><i class="fas fa-headset"></i> Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="login-box">
-                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In" onchange="location = this.value;">
-                        <option value="{{route('user.create')}}">Đăng ký</option>
-                        <option>Đăng nhập</option>
-                    </select>
-                </div>
+                
                 <div class="text-slid-box">
                     <div id="offer-box" class="carouselTicker">
                         <ul class="offer-box">

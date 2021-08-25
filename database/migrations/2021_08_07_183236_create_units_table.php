@@ -16,7 +16,6 @@ class CreateUnitsTable extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('email')->unique();
             $table->integer('phone')->nullable();
             $table->string('address')->nullable();
             $table->boolean('status')->default(0);

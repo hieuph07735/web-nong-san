@@ -9,10 +9,15 @@
                 </a>
 
                 <div class="sb-sidenav-menu-heading">Quản lý</div>
+                <a class="nav-link" href="{{route('unit.index')}}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-bookmarks"></i></div>
+                    Nhà cung cấp 
+                </a>
                 <a class="nav-link" href="{{route('category.index')}}">
                     <div class="sb-nav-link-icon"><i class="bi bi-bookmarks"></i></div>
                     Danh mục
                 </a>
+
                 <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                     <div class="sb-nav-link-icon"><i class="bi bi-inboxes"></i></div>
                     Sản phẩm

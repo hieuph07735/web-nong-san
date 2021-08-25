@@ -33,15 +33,6 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="breadcrumb-item active">Mô tả</label>
-                            <textarea class="form-control" name="description" id="descCk" cols="30"
-                            rows="5">{{$data->description}}</textarea>
-                            @error('description')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <br>
-                        <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Loại sản phẩm</label>
                             <select class="form-control mul-select" name="type_product_id">
                                 @foreach ($type_product as $value)
@@ -56,18 +47,44 @@
                         </div>
                         <br>
                         <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="breadcrumb-item active">Nhà cung cấp </label>
+                            <select class="form-control mul-select" name="unit_id">
+                                @foreach ($unit_product as $value)
+                                    <option value="{{ $value->id }}"
+                                        {{ old('unit_id') == $value->id ? 'selected' : '' }}>{{ $value->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('unit_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="breadcrumb-item active">Giá sản phẩm</label>
+                            <input type="text" class="form-control" name="price_entry" value="{{$data->price_entry}}">
+                            @error('name')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="breadcrumb-item active">Mô tả</label>
+                            <textarea  type="text" class="form-control" name="description" >{{$data->description}}</textarea>
+                            @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <br>
+                        <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Ảnh</label>
-                            <input type="file" class="form-control" name="image[]" multiple>
+                            <input type="file" class="form-control" name="image[]" multiple accept="image/*" onchange="loadFile(event)">
+                            <img id="output" src="{{$data->image}}" style="width: 200px;"/>
                             @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
-                        <?php
-                            $img_pr = DB::table('product_images')->where('product_id',$value->id)->get();
-                        ?>
-                        @foreach( $img_pr  as $item)
-                        <img src="{{$item->path}}" style="width: 100px"></td>
-                        @endforeach
+                        
                         <br>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Trạng thái</label>
@@ -94,5 +111,16 @@
     <script>
         $('select').select2();
         CKEDITOR.replace('descCk');
+
     </script>
+   
+<script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
 @endsection

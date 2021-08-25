@@ -29,9 +29,11 @@ class AddProduct extends FormRequest
             'type_product_id' => 'required',
             'name' =>'required|max:255',
             'description' =>'required|max:255',
+            'unit_id' =>'required',
+            'price_entry' =>'required',
             'status' =>'required',
             'image' =>'required',
-            'image.*' =>'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
+
         ];
     }
 
@@ -49,6 +51,8 @@ class AddProduct extends FormRequest
             'type_product_id' => 'Loại sản phẩm',
             'name' =>'Tên sản phẩm',
             'description' =>'Mô tả sản phẩm',
+            'price_entry'=>'Giá nhập sản phẩm',
+            'unit_id'=>'Giá nhập sản phẩm',
             'status' =>'Trạng thái',
             'image' =>'Ảnh sản phẩm',
         ];

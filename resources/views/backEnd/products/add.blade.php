@@ -33,14 +33,6 @@
                         </div>
                         <br>
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="breadcrumb-item active">Mô tả</label>
-                            <textarea  type="text" class="form-control" id="descCk" name="description" >{{ old('description')}}</textarea>
-                            @error('description')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
-                        </div>
-                        <br>
-                        <div class="form-group">
                             <label for="exampleFormControlSelect1" class="breadcrumb-item active">Loại sản phẩm</label>
                             <select class="form-control mul-select" name="type_product_id">
                                 @foreach ($type_product as $value)
@@ -53,6 +45,37 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
                         </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1" class="breadcrumb-item active">Nhà cung cấp </label>
+                            <select class="form-control mul-select" name="unit_id">
+                                @foreach ($unit_product as $value)
+                                    <option value="{{ $value->id }}"
+                                        {{ old('unit_id') == $value->id ? 'selected' : '' }}>{{ $value->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @error('unit_id')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="breadcrumb-item active">Giá sản phẩm</label>
+                            <input type="text" class="form-control" name="price_entry" value="{{ old('price_entry')}}">
+                            @error('price_entry')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" class="breadcrumb-item active">Mô tả</label>
+                            <textarea  type="text" class="form-control" name="description" value="{{ old('description')}}"></textarea>
+                            @error('description')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                        
                         <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Ảnh</label>

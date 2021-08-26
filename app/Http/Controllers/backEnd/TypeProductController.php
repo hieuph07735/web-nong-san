@@ -10,6 +10,7 @@ use App\Http\Requests\EditTypeProduct;
 use App\Models\TypeProduct;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Unit;
 use File;
 
 class TypeProductController extends Controller
@@ -27,7 +28,9 @@ class TypeProductController extends Controller
     }
     public function product_create(){
         $type_product = TypeProduct::where('status',1)->get();
-        return view('backEnd.products.add',compact('type_product'));
+        $unit_product = Unit::where('status',1)->get();
+        
+        return view('backEnd.products.add',compact('type_product','unit_product'));
     }
 
 
@@ -38,6 +41,7 @@ class TypeProductController extends Controller
     }
 
     public function store(AddTypeProduct $request)
+    
     {
         try {
             if ($request->hasFile('image')) {
@@ -106,7 +110,7 @@ class TypeProductController extends Controller
             $category = Category::query()->find($data->category_id);
             $data->name_caterogy = $category->name ?? "";
         }
-        return view('backEnd.type_products.list',compact('datas','status'));
+        return redirect()->route('type_product.index',compact('datas','status'));
     }
 
     public function status(Request $request)

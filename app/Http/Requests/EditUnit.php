@@ -4,9 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use App\Models\Product;
 
-class AddProduct extends FormRequest
+class EditUnit extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,14 +25,15 @@ class AddProduct extends FormRequest
     public function rules()
     {
         return [
-            'type_product_id' => 'required',
-            'name' =>'required|max:255',
-            'description' =>'required|max:255',
-            'unit_id' =>'required',
-            'price_entry' =>'required',
-            'status' =>'required',
-            'image' =>'required',
-
+            'name' =>[
+                'required','max:255',
+                Rule::unique('units')->ignore($this->id,'id')->where(function ($query) {
+                    return $query->where('status','!=' , 3);
+                })
+            ],
+            'phone' =>'required|regex:/^[0][0-9]{9}$/',
+            'address' => 'required|max:255',
+            'status' => 'required',
         ];
     }
 
@@ -41,20 +41,17 @@ class AddProduct extends FormRequest
         return [
             'required'=>':attribute không được để trống',
             'max'=>':attribute không được vượt quá :max',
-            'image' => ':attribute phải là ảnh và thuộc các định dạng: jpeg,png,jpg,gif,svg',
             'unique'=>':attribute đã được sử dụng',
+            'regex'=>':attribute số điện thoại không hợp lệ ',
         ];
     }
 
     public function attributes(){
         return [
-            'type_product_id' => 'Loại sản phẩm',
-            'name' =>'Tên sản phẩm',
-            'description' =>'Mô tả sản phẩm',
-            'price_entry'=>'Giá nhập sản phẩm',
-            'unit_id'=>'Giá nhập sản phẩm',
+            'name' =>'Tên nhà cung cấp ',
+            'phone' =>'Số điện thoại',
+            'address' =>'Địa chỉ',
             'status' =>'Trạng thái',
-            'image' =>'Ảnh sản phẩm',
         ];
     }
 }

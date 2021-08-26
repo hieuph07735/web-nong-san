@@ -9,6 +9,7 @@ use App\Models\ProductImage;
 use App\Http\Requests\AddProduct;
 use App\Http\Requests\EditProduct;
 use App\Models\TypeProduct;
+use App\Models\Unit;
 use File;
 
 
@@ -16,7 +17,8 @@ class ProductController extends Controller
 {
     public function index($status){
         $datas = Product::where('status','!=',3)->get();
-        return view('backEnd.products.list')->with(compact('datas', 'status'));
+        $unit_product = Unit::where('status','!=',3)->get();
+        return view('backEnd.products.list')->with(compact('datas','unit_product', 'status'));
     }
 
     public function product_create(){
@@ -25,65 +27,61 @@ class ProductController extends Controller
     }
 
     public function store(AddProduct $request){
+        $image= "";
         $pr = new Product();
-        $pr->type_product_id = $request->type_product_id;
-        $pr->name = $request->name;
-        $pr->description = $request->description;
-        $pr->status = $request->status;
-        $pr->code_product = 'TX'.time().rand(100000, 999999);
-        $pr->save();
-
-
-         foreach($request->image as $key=>$value){
-            $pr_img = new ProductImage();
-            $extension = $value->extension();
-            $filename =  uniqid(). "." . $extension;
-            $path = $value->storeAs(
+        if ($request->hasFile('image')) {
+            $extension = $request->image[0]->extension();
+            $filename = uniqid() . "." . $extension;
+            $path = $request->image[0]->storeAs(
                 'img_product', $filename, 'public'
             );
-            $pr_img->product_id = $pr->id;
-            $pr_img->path = "storage/".$path;
-            $pr_img->sort = $key;
-            $pr_img->save();
-         }
+            $image = "storage/" . $path;
+        }
+        $pr->type_product_id = $request->type_product_id;
+        $pr->unit_id = $request->unit_id;
+        $pr->name = $request->name;
+        $pr->price_entry = $request->price_entry;
+        $pr->description = $request->description;
+        $pr->image = $image;
+        $pr->status = $request->status;
+        $pr->code = 'TX'.time().rand(100000, 999999);
+        $pr->save();
         $status = 1;
+        
         return redirect()->route('product.index',compact('status'));
     }
 
     public function edit($id){
         $type_product = TypeProduct::where('status',1)->get();
+        $unit_product = Unit::where('status','!=',3)->get();
         $data = Product::find($id);
-        return view('backEnd.products.edit',compact('data','type_product'));
+        return view('backEnd.products.edit',compact('data','type_product','unit_product'));
     }
 
     public function update(EditProduct $request ,$id){
+        $image = 1;
+        if($request->hasFile('image')){
+            $extension = $request->image[0]->extension();
+            $filename =  uniqid(). "." . $extension;
+            $path = $request->image[0]->storeAs(
+                'img_product', $filename, 'public'
+            );
+            $image = "storage/".$path;
+        }
        $pr = Product::find($id);
        $pr->type_product_id = $request->type_product_id;
        $pr->name = $request->name;
+       $pr->unit_id = $request->unit_id;
+       $pr->price_entry = $request->price_entry;
        $pr->description = $request->description;
+       if($image != 1){
+        File::delete($pr->image);
+        $pr->image = $image;
+    }
        $pr->status = $request->status;
        $pr->save();
 
-        if($request->image != null){
-            $arr_img = ProductImage::where('product_id',$pr->id)->get();
-            foreach($arr_img as $item){
-                File::delete($item->path);
-                $flight = ProductImage::find($item->id);
-                $flight->delete();
-            }
-            foreach($request->image as $key=>$value){
-                $pr_img = new ProductImage();
-                $extension = $value->extension();
-                $filename =  uniqid(). "." . $extension;
-                $path = $value->storeAs(
-                    'img_product', $filename, 'public'
-                );
-                $pr_img->product_id = $pr->id;
-                $pr_img->path = "storage/".$path;
-                $pr_img->sort = $key;
-                $pr_img->save();
-                }
-        }
+       
        $status = 2;
        return redirect()->route('product.index',compact('status'));
     }

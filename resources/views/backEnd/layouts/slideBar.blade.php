@@ -7,10 +7,8 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-clipboard-data"></i></div>
                     Thống kê
                 </a>
-
-                <div class="sb-sidenav-menu-heading">Quản lý</div>
                 <a class="nav-link" href="{{route('unit.index')}}">
-                    <div class="sb-nav-link-icon"><i class="bi bi-bookmarks"></i></div>
+                    <div class="sb-nav-link-icon" class ="@if(Route::is('unit.index')) active @endif"><i class="bi bi-bookmarks"></i></div>
                     Nhà cung cấp 
                 </a>
                 <a class="nav-link" href="{{route('category.index')}}">

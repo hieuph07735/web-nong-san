@@ -89,7 +89,7 @@ class InventoryController extends Controller
             }
             $inventory->price_sale = $request->price_sale;
             $inventory->date_add = Carbon::createFromFormat('Y-m-d', $request->date_add);
-            $inventory->expiry = $request->expiry;
+            $inventory->expiry = $request->expiry; 
             $inventory->status = $request->status;
             $inventory->unit_id = 1;
             $inventory->save();

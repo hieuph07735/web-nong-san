@@ -84,5 +84,6 @@ Route::get('bo-suu-tap', 'Client\GalleryController@index')->name('gallery');
 Route::get('lien-he', 'Client\ContactController@index')->name('contact');
 Route::get('gio-hang', 'Client\CartController@index')->name('cart');
 Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
+Route::get('thanh-toan', 'Client\CheckoutController@index')->name('checkout.detail');
 
 

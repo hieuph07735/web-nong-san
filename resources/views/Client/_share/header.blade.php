@@ -15,9 +15,9 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                
+
                 <div class="text-slid-box">
                     <div id="offer-box" class="carouselTicker">
                         <ul class="offer-box">
@@ -64,7 +64,7 @@
                         <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Sản phẩm</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('product')}}">Danh sách sản phẩm</a></li>
-                            <li><a href="{{route('product.detail')}}">Chi tiết sản phẩm</a></li>
+{{--                            <li><a href="{{route('product.detail')}}">Chi tiết sản phẩm</a></li>--}}
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('gallery')}}">Danh mục sản phẩm</a></li>

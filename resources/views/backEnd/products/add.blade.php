@@ -79,7 +79,8 @@
                         <br>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="breadcrumb-item active">Ảnh</label>
-                            <input type="file" class="form-control" name="image[]" multiple>
+                            <input type="file" class="form-control" name="image[]" multiple accept="image/*" onchange="loadFile(event)">
+                            <img id="output" style="width: 200px;"/>
                             @error('image')
                             <div class="alert alert-danger">{{ $message }}</div>
                             @enderror
@@ -110,5 +111,14 @@
         $('select').select2();
         CKEDITOR.replace('descCk');
     </script>
+    <script>
+  var loadFile = function(event) {
+    var output = document.getElementById('output');
+    output.src = URL.createObjectURL(event.target.files[0]);
+    output.onload = function() {
+      URL.revokeObjectURL(output.src) // free memory
+    }
+  };
+</script>
 @endsection
 

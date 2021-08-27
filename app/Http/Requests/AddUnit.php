@@ -25,7 +25,7 @@ class AddUnit extends FormRequest
     {
         return [
             'name' =>'required|unique:units|max:255',
-            'phone' =>'required|regex:/^[0][0-9]{9}$/',
+            'phone' =>'required|unique:units|regex:/^[0][0-9]{9}$/',
             'address' => 'required|max:255',
             'status' => 'required',
         ];

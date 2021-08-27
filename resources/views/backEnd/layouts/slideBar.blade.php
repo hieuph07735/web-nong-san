@@ -32,6 +32,10 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>
                    Quản lý kho hàng
                 </a>
+                <a class="nav-link" href="{{route('contact.index')}}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>
+                  Liên hệ
+                </a>
             </div>
         </div>
         <div class="sb-sidenav-footer">

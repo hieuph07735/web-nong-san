@@ -13,6 +13,8 @@ use App\Http\Controllers\backEnd\AdminController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 //Admin
 Route::group(['prefix' => 'admin'], function (){
     Route::get('/login', 'AuthController@getLogin')->name('get.login');
@@ -53,7 +55,6 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/xoa','backEnd\TypeProductController@delete')->name('type_product.delete');
         Route::post('/sua-trang-thai','backEnd\TypeProductController@status')->name('type_product.status');
     });
-
     //Quản lý sản phẩm
     Route::group(['prefix' => 'san-pham'], function() {
         Route::get('/{status}','backEnd\ProductController@index')->name('product.index');
@@ -63,7 +64,6 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/xoa', 'backEnd\ProductController@delete')->name('product.delete');
         Route::post('/sua-trang-thai', 'backEnd\ProductController@status')->name('product.status');
     });
-
     // Quản lý kho hàng
     Route::group(['prefix' => 'quan-ly-kho-hang'], function () {
         Route::get('/','backEnd\InventoryController@index')->name('inventory.index');
@@ -75,6 +75,9 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/sua-trang-thai','backEnd\InventoryController@status')->name('inventory.status');
     });
 });
+
+
+
 
 //Client
 Route::get('/', 'Client\HomeController@index')->name('home');

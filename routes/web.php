@@ -93,5 +93,6 @@ Route::get('contact', 'Client\ContactController@index')->name('contact');
 Route::post('post-contact', 'Client\ContactController@post_contact')->name('post.contact');
 Route::get('gio-hang', 'Client\CartController@index')->name('cart');
 Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
+Route::get('thanh-toan', 'Client\CheckoutController@index')->name('checkout.detail');
 
 

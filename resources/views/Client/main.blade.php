@@ -14,14 +14,17 @@
 </head>
 
 <body>
- 
-    @include('Client._share.header')
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v11.0"
+        nonce="gA1gD8mO">
+</script>
+@include('Client._share.header')
 
-    @yield('content')
+@yield('content')
 
-    @include('Client._share.footer')
+@include('Client._share.footer')
 
-    @include('Client._share.script')
+@include('Client._share.script')
 
 </body>
 </html>

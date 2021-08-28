@@ -78,9 +78,7 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
     Route::group(['namespace' => 'backEnd','prefix' => 'manage-contact'], function () {
         Route::get('/','ContactController@index')->name('contact.index');
         Route::get('un-active/{id}', 'ContactController@Unactive_contact')->name('un-active');
-        Route::get('active/{id}', 'ContactController@Active_contact')->name('aactive');
-
-        // Route::post('/sua-trang-thai', 'ContactController@status')->name('contact.status');
+        Route::get('active/{id}', 'ContactController@Active_contact')->name('active');
     });
 });
 

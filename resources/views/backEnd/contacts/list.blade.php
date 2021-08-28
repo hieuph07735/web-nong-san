@@ -36,6 +36,7 @@
                                     <td>{{ $value->phone }}</td>
                                     <td>{{ $value->content }}</td>
                                     <td>
+                                        
                                         <span class="text-ellipsis">
                                             @if ($value->status == 1)
                                                 <a href="{{ route('un-active', $value->id) }}">

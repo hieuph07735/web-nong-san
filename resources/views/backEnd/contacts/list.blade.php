@@ -36,34 +36,13 @@
                                     <td>{{ $value->phone }}</td>
                                     <td>{{ $value->content }}</td>
                                     <td>
-                                        {{-- <div class="form-check form-switch">
-                                    <input onclick="statusPr({{$value->id}})" class="form-check-input" type="checkbox"
-                                        {{$value->status == 2 ?"checked":''}} id="checkbox{{$value->id}}">
-                                </div>
-                                </span> --}}
-                                        {{-- <div class="col-sm-2"> --}}
-
-                                        {{-- <div class="form-group">
-                                        <select id="status" class="form-control">
-                                            @if ($value->status == 1)
-                                            <option value="1" @if (Request::get('status') == 1) selected @endif>
-                                                Chờ xử lý
-                                            </option>
-                                            @else
-                                            <option value="2" @if (Request::get('status') == 2) selected @endif>
-                                                Đã xử lý
-                                            </option>
-                                            @endif
-                                        </select>
-                                    </div> --}}
-
                                         <span class="text-ellipsis">
                                             @if ($value->status == 1)
                                                 <a href="{{ route('un-active', $value->id) }}">
                                                     <span class="label label-primary">Chưa xử lý</span></a>
                                             @endif
                                             @if ($value->status == 2)
-                                                <a href="{{ route('aactive', $value->id) }}">
+                                                <a href="{{ route('active', $value->id) }}">
                                                     <span class="label label-danger">Đã xử lý</span>
                                                 </a>
                                             @endif

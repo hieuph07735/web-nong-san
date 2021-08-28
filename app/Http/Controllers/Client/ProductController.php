@@ -3,15 +3,21 @@
 namespace App\Http\Controllers\Client;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Category;
+use App\Models\Inventory;
 use App\Models\Product;
-use App\Models\ProductImage;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $data = Product::where('status',1)->paginate();
-        return view('Client.product',compact('data'));
+        $categories = Category::all();
+        $inventories = Inventory::all();
+        foreach ($inventories as $inventory) {
+            $product = Product::query()->find($inventory->product_id);
+            $inventory->name_product = $product->name ?? "";
+            $inventory->image = $product->image ?? "";
+        }
+        return view('Client.product',compact('inventories', 'categories'));
     }
 }

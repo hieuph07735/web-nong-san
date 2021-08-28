@@ -16,7 +16,6 @@ class ContactController extends Controller
     }
     public function post_contact(Request $request)
     {
-        // try {
             Feedback::insert([
                 'name' => $request->name,
                 'phone' => $request->phone,

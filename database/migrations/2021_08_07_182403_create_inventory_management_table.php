@@ -19,7 +19,7 @@ class CreateInventoryManagementTable extends Migration
             $table->integer('user_id');
             $table->integer('unit_id');
             $table->date('date_add');
-            $table->date('expiry');
+            $table->integer('expiry');
             $table->integer('price');
             $table->integer('price_sale');
             $table->integer('amount');

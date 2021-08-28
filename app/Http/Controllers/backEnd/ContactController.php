@@ -13,7 +13,6 @@ class ContactController extends Controller
     public function index()
     {
         $datas = Feedback::OrderBy('id', 'DESC')->get();
-        // $post = Post::orderBy('id', 'DESC')->get();
         return view('backEnd.contacts.list', compact('datas'));
     }
     public function Unactive_contact($id)

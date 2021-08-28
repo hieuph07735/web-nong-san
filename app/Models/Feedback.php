@@ -7,6 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Feedback extends Model
 {
     protected $table = 'feedbacks';
-    protected $fillable = ['name','phone','email','content'];
-    protected $timestamps = true;
+    protected $fillable = ['name','phone','email','content','status'];
 }

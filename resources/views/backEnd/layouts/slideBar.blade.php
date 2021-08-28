@@ -7,8 +7,6 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-clipboard-data"></i></div>
                     Thống kê
                 </a>
-
-                <div class="sb-sidenav-menu-heading">Quản lý</div>
                 <a class="nav-link  @if (Route::is('unit.index')) active @endif" href="{{ route('unit.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-bookmarks"></i></div>
                     Quản lý nhà cung cấp
@@ -17,13 +15,13 @@
                     <div class="sb-nav-link-icon"><i class="bi bi-bookmarks"></i></div>
                     Quản lý danh mục
                 </a>
-
+                
                 <!-- <a class="nav-link collapsed @if (Route::is('type_product.index') || Route::is('product.index')) active @endif"  href="active" 
                 data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="true" aria-controls="collapseLayouts " id="a">
                     <div class="sb-nav-link-icon "><i class="bi bi-inboxes"></i></div>
                     Sản phẩm
                     <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                </a>
+                </a
                 <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link @if (Route::is('type_product.index')) active @endif" href="{{route('type_product.index')}}">Loại sản phẩm</a>
@@ -40,6 +38,10 @@
                 <a class="nav-link @if (Route::is('inventory.index')) active @endif" href="{{ route('inventory.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>
                     Quản lý kho hàng
+                </a>
+                <a class="nav-link @if (Route::is('contact.index')) active @endif" href="{{route('contact.index')}}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>
+                  Liên hệ
                 </a>
             </div>
         </div>

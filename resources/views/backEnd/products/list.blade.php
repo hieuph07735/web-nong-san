@@ -90,7 +90,7 @@ Danh sách sản phẩm
                                 <a href="{{route('product.edit',['id'=>$value->id])}}">
                                     <i class="bi bi-pencil text-warning"></i>
                                 </a>
-                                <a href="{{route('product.detail')}}">
+                                <a href="{{route('product.detail', ['id'=>$value->id])}}">
                                     <i class="bi bi-eye"></i>
                                 </a>
                                 <a onclick="deletePr({{$value->id}})">

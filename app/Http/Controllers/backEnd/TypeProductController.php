@@ -29,7 +29,7 @@ class TypeProductController extends Controller
     public function product_create(){
         $type_product = TypeProduct::where('status',1)->get();
         $unit_product = Unit::where('status',1)->get();
-        
+
         return view('backEnd.products.add',compact('type_product','unit_product'));
     }
 
@@ -41,7 +41,7 @@ class TypeProductController extends Controller
     }
 
     public function store(AddTypeProduct $request)
-    
+
     {
         try {
             if ($request->hasFile('image')) {
@@ -64,7 +64,7 @@ class TypeProductController extends Controller
             $status = 2;
         }
         $datas = TypeProduct::all();
-        return view('backEnd.type_products.list', compact('datas', 'status'));
+        return route('type_product.index', compact('datas', 'status'));
     }
 
     public function edit(Request $request, $id)

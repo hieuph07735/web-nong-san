@@ -34,7 +34,11 @@
                         <a class="nav-link @if (Route::is('product.index')) active @endif" href="{{route('product.index',['status'=>0])}}">Sản phẩm</a>
                         <a class="nav-link" href="{{route('variation-type.index')}}">Kiểu thuộc tính</a>
                     </nav>
-                </div> -->
+                </div> -->                
+                <a class="nav-link @if (Route::is('type_product.index')) active @endif"
+                    href="{{ route('variation-type.index') }}">
+                    <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>Quản lý kiểu thuộc tính
+                </a>
                 <a class="nav-link @if (Route::is('type_product.index')) active @endif"
                     href="{{ route('type_product.index') }}">
                     <div class="sb-nav-link-icon"><i class="bi bi-cart4"></i></div>Quản lý loại sản phẩm

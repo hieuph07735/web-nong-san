@@ -80,6 +80,16 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::get('un-active/{id}', 'ContactController@Unactive_contact')->name('un-active');
         Route::get('active/{id}', 'ContactController@Active_contact')->name('active');
     });
+       //Quản lý introduce
+       Route::group(['prefix' => 'quan-ly-gioi-thieu'], function () {
+        Route::get('/','backEnd\IntroductsController@index')->name('introduct.index');
+        Route::get('/tao-moi','backEnd\IntroductsController@create')->name('introduct.create');
+        Route::post('/tao-moi','backEnd\IntroductsController@store')->name('introduct.store');
+        Route::get('/sua/{id}','backEnd\IntroductsController@edit')->name('introduct.edit');
+        Route::post('/sua/{id}','backEnd\IntroductsController@update')->name('introduct.update');
+        Route::post('/xoa','backEnd\IntroductsController@destroy')->name('introduct.delete');
+        Route::post('/sua-trang-thai','backEnd\IntroductsController@status')->name('introduct.status');
+    });
 });
 
 

@@ -9,10 +9,10 @@ Giỏ hàng
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2>Cart</h2>
+                    <h2>Giỏ Hàng</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active">Cart</li>
+                        <li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
+                        <li class="breadcrumb-item active">Giỏ hàng</li>
                     </ul>
                 </div>
             </div>
@@ -29,12 +29,12 @@ Giỏ hàng
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Images</th>
-                                    <th>Product Name</th>
-                                    <th>Price</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
-                                    <th>Remove</th>
+                                    <th>Ảnh</th>
+                                    <th>Tên sản phẩm</th>
+                                    <th>Giá sản phẩm</th>
+                                    <th>Số lượng</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Xóa giỏ hàng</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -167,7 +167,7 @@ Giỏ hàng
                         </div>
                         <hr> </div>
                 </div>
-                <div class="col-12 d-flex shopping-box"><a href="" class="ml-auto btn hvr-hover">Checkout</a> </div>
+                <div class="col-12 d-flex shopping-box"><a href="" class="ml-auto btn hvr-hover">Thanh toán</a> </div>
             </div>
 
         </div>

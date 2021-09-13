@@ -15,4 +15,8 @@ class ProductVariation extends Model
     {
         return $this->belongsTo(Products::class);
     }
+    public function variationtype(){
+        return $this->belongsTo(ProductVariationType::class, 'product_variation_types_id','id');
+        // return $this->hasOne(ProductVariationType::class,'product_variation_types', 'id');
+    }
 }

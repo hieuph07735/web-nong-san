@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backEnd\AdminController;
 use App\Http\Controllers\backend\ProductVariationTypeController;
+use App\Http\Controllers\backend\ProductVariationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -102,6 +103,12 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function (){
         Route::get('/edit/{id}',[ProductVariationTypeController::class,'edit'])->name('edit');
         Route::post('/update/{id}',[ProductVariationTypeController::class,'update'])->name('update');
         Route::post('/destroy/{id}',[ProductVariationTypeController::class,'destroy'])->name('destroy');
+    });
+    Route::group(['prefix'=>'variationn', 'as' => 'variation.'],function(){
+        Route::get('/',[ProductVariationController::class,'index'])->name('index');
+        Route::get('/create/{id}',[ProductVariationController::class,'create'])->name('create');
+        Route::post('/store',[ProductVariationController::class,'store'])->name('store');
+        Route::post('/destroy/{id}',[ProductVariationController::class,'destroy'])->name('destroy');
     });
 });
 

@@ -4,6 +4,10 @@ namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\ProductVariationType;
+use App\Models\ProductVariation;
+use Carbon\Carbon;
 
 class ProductVariationController extends Controller
 {
@@ -14,7 +18,6 @@ class ProductVariationController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -22,9 +25,12 @@ class ProductVariationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $data['product'] = Product::find($id)->load('variations');
+        $data['var_type'] = ProductVariationType::all();
+        $data['variation'] = ProductVariation::where('products_id', $id)->get()->load('variationtype');
+        return view('backend.variation.common', $data);
     }
 
     /**
@@ -35,7 +41,27 @@ class ProductVariationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product_id = $request->id;
+        // dd($product_id);
+        $var_name = $request->name;
+        $var_prc = $request->price;
+        $var_qty = $request->quantity;
+        $vartypes_id = $request->var_type;
+        $productvariation = [];
+        $length = count($var_name);
+        for ($i = 0; $i < $length; $i++) {
+            $productvariation = new ProductVariation();
+            $productvariation->products_id = $product_id;
+            $productvariation->product_variation_types_id = $vartypes_id[$i];
+            $productvariation->name = $var_name[$i];
+            $productvariation->price = $var_prc[$i];
+            $productvariation->quantity = $var_qty[$i];
+            $productvariation->created_at = Carbon::now();
+            // dd($product_id);
+            $productvariation->save();
+            // array_push($productvariation, ['products_id'=>$product_id,'product_variation_types_id' => $vartypes_id,'name' => $var_name[$i],'price' => $var_prc[$i],'quantity' => $var_qty[$i]]);
+        }
+        return redirect()->route('product.index', ['status' => 0]);
     }
 
     /**

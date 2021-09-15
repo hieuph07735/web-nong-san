@@ -57,11 +57,9 @@ class ProductVariationController extends Controller
             $productvariation->price = $var_prc[$i];
             $productvariation->quantity = $var_qty[$i];
             $productvariation->created_at = Carbon::now();
-            // dd($product_id);
             $productvariation->save();
-            // array_push($productvariation, ['products_id'=>$product_id,'product_variation_types_id' => $vartypes_id,'name' => $var_name[$i],'price' => $var_prc[$i],'quantity' => $var_qty[$i]]);
         }
-        return redirect()->route('product.index', ['status' => 0]);
+        return redirect()->back();;
     }
 
     /**
@@ -106,6 +104,9 @@ class ProductVariationController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $var = ProductVariation::find($id);
+       $var->delete();
+
+       return redirect()->back();
     }
 }

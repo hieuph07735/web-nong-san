@@ -104,8 +104,7 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function (){
         Route::post('/update/{id}',[ProductVariationTypeController::class,'update'])->name('update');
         Route::post('/destroy/{id}',[ProductVariationTypeController::class,'destroy'])->name('destroy');
     });
-    Route::group(['prefix'=>'variationn', 'as' => 'variation.'],function(){
-        Route::get('/',[ProductVariationController::class,'index'])->name('index');
+    Route::group(['prefix'=>'variation', 'as' => 'variation.'],function(){
         Route::get('/create/{id}',[ProductVariationController::class,'create'])->name('create');
         Route::post('/store',[ProductVariationController::class,'store'])->name('store');
         Route::post('/destroy/{id}',[ProductVariationController::class,'destroy'])->name('destroy');

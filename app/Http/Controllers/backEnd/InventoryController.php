@@ -29,6 +29,7 @@ class InventoryController extends Controller
             $inventory->unit_id = 0;
             $inventory->user_id = auth()->id();
             $inventory->amount = $request->amount;
+            $inventory->number_import = $request->amount;
             $inventory->price = $request->price;
             if(is_null($request->price_sale) == true){
                 $request->price_sale = 0;
@@ -94,13 +95,14 @@ class InventoryController extends Controller
             $inventory->product_id = $request->product_id;
             $inventory->user_id = auth()->id();
             $inventory->amount = $request->amount;
+            $inventory->number_import = $request->amount;
             $inventory->price = $request->price;
             if(is_null($request->price_sale) == true){
                 $request->price_sale = 0;
             }
             $inventory->price_sale = $request->price_sale;
             $inventory->date_add = Carbon::createFromFormat('Y-m-d', $request->date_add);
-            $inventory->expiry = $request->expiry; 
+            $inventory->expiry = $request->expiry;
             $inventory->status = $request->status;
             $inventory->unit_id = 1;
             $inventory->save();

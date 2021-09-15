@@ -17,6 +17,45 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <script>
+    $(".update-cart").change(function (e) {
+        e.preventDefault();
+
+        const ele = $(this);
+
+        $.ajax({
+            url: '{{ route('update.cart') }}',
+            method: "post",
+            data: {
+                _token: '{{ csrf_token() }}',
+                id: ele.parents("tr").attr("data-id"),
+                amount: ele.parents("tr").find(".amount").val()
+            },
+            success: function (response) {
+                window.location.reload();
+            }
+        });
+    });
+
+    $(".remove-cart").click(function (e) {
+        e.preventDefault();
+
+        var ele = $(this);
+
+        if(confirm("Bạn chắc chắn muốn xóa sản phẩm này?")) {
+            $.ajax({
+                url: '{{ route('remove.cart') }}',
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    id: ele.parents("tr").attr("data-id")
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        }
+    });
+
     function test() {
         //     swal("Cảm ơn bạn. Chúng tôi sẽ liên hệ với bạn sau !!!");
         // }
@@ -44,7 +83,7 @@
                     })
                     .then(function(response) {
                        if (response.data == 1) {
-                           
+
                         window.location.reload();
                        }
                     })

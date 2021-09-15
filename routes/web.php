@@ -102,8 +102,12 @@ Route::get('san-pham', 'Client\ProductController@index')->name('product');
 Route::get('bo-suu-tap', 'Client\GalleryController@index')->name('gallery');
 Route::get('contact', 'Client\ContactController@index')->name('contact');
 Route::post('post-contact', 'Client\ContactController@post_contact')->name('post.contact');
-Route::get('gio-hang', 'Client\CartController@index')->name('cart');
-Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
+Route::get('chi-tiet-san-pham/{id}', 'Client\ProductDetailController@index')->name('product.detail');
 Route::get('thanh-toan', 'Client\CheckoutController@index')->name('checkout.detail');
+Route::get('gio-hang', 'Client\CartController@index')->name('cart');
+Route::get('them-san-pham/{id}', 'Client\CartController@addCart')->name('add.cart');
+Route::get('them-mot-san-pham/{id}', 'Client\CartController@addOneCart')->name('add.one.cart');
+Route::post('cap-nhat-san-pham', 'Client\CartController@updateCart')->name('update.cart');
+Route::delete('xoa-san-pham', 'Client\CartController@removeCart')->name('remove.cart');
 
 

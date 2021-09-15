@@ -3,7 +3,11 @@
     Chi tiết sản phẩm
 @endsection
 @section('content')
-
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <!-- Start All Title Box -->
     <div class="all-title-box">
         <div class="container">
@@ -60,7 +64,7 @@
                             <h5>{{$inventory->price}}</h5>
                         @else
                             <h5>
-                                <del style="margin-right: 5px">{{$inventory->price}}VNĐ</del>{{$inventory->price_sale}}
+                                <del style="margin-right: 5px">{{number_format($inventory->price)}}VNĐ</del>{{$inventory->price_sale}}
                                 VNĐ
                             </h5>
                         @endif
@@ -68,19 +72,19 @@
                         <p>
                         <h4>Mô tả</h4>
                         <p>{{$product->description}}</p>
-                        <ul>
-                            <li>
-                                <div class="form-group quantity-box">
-                                    <label class="control-label">Quantity</label>
-                                    <input class="form-control" value="0" min="0" max="20" type="number">
-                                </div>
-                            </li>
-                        </ul>
+{{--                        <ul>--}}
+{{--                            <li>--}}
+{{--                                <div class="form-group quantity-box">--}}
+{{--                                    <label class="control-label">Quantity</label>--}}
+{{--                                    <input class="form-control" value="0" min="0" max="{{$inventory->amount}}" type="number">--}}
+{{--                                </div>--}}
+{{--                            </li>--}}
+{{--                        </ul>--}}
 
                         <div class="price-box-bar">
                             <div class="cart-and-bay-btn">
-                                <a class="btn hvr-hover" data-fancybox-close="" href="#">Buy New</a>
-                                <a class="btn hvr-hover" data-fancybox-close="" href="#">Add to cart</a>
+                                <a class="btn hvr-hover" data-fancybox-close="" href="{{ route('add.one.cart', $product->id) }}">Buy New</a>
+                                <a class="btn hvr-hover" data-fancybox-close="" href="{{ route('add.cart', $product->id) }}">Add to cart</a>
                             </div>
                         </div>
 

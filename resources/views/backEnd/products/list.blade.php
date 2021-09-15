@@ -87,6 +87,9 @@ Danh sách sản phẩm
                                 </span>
                             </td>
                             <td>
+                                <a href="{{route('variation.create', $value->id)}}" ="Thêm thuộc tính">
+                                    <i class="bi bi-plus-circle-fill"></i>
+                                </a>
                                 <a href="{{route('product.edit',['id'=>$value->id])}}">
                                     <i class="bi bi-pencil text-warning"></i>
                                 </a>

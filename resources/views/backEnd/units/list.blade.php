@@ -16,7 +16,7 @@
 
             <div class="card mb-4">
                 <div class="card-header">
-                    <a href="{{route('unit.create')}}" class="btn btn-success">Thêm mới</a>
+                    <a href="{{route('unit.create')}}" class="btn btn-success">Thêm mới nhà cung cấp</a>
                 </div>
 
                 <div class="card-body">

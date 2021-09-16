@@ -48,8 +48,8 @@
                             <li data-target="#carousel-example-1" data-slide-to="0" class="active">
                                 <img class="d-block w-100 img-fluid" src="{{$product->image}}" alt=""/>
                             </li>
-                            {{--                            <li data-target="#carousel-example-1" data-slide-to="1">--}}
-                            {{--                                <img class="d-block w-100 img-fluid" src="Client/images/smp-img-02.jpg" alt="" />--}}
+                            {{--<li data-target="#carousel-example-1" data-slide-to="1">--}}
+                            {{--<img class="d-block w-100 img-fluid" src="Client/images/smp-img-02.jpg" alt="" />--}}
                             {{--                            </li>--}}
                             {{--                            <li data-target="#carousel-example-1" data-slide-to="2">--}}
                             {{--                                <img class="d-block w-100 img-fluid" src="Client/images/smp-img-03.jpg" alt="" />--}}

@@ -27,11 +27,11 @@
                             <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
                             <th>Số lượng</th>
+                            <th>Số lượng nhập</th>
                             <th>Giá bán</th>
                             <th>Giá giảm</th>
                             <th>Ngày nhập</th>
                             <th>Hạn sử dụng</th>
-{{--                            <th>Người lên đơn</th>--}}
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -42,11 +42,11 @@
                             <th>Mã sản phẩm</th>
                             <th>Tên sản phẩm</th>
                             <th>Số lượng</th>
+                            <th>Số lượng nhập</th>
                             <th>Giá bán</th>
                             <th>Giá giảm</th>
                             <th>Ngày nhập</th>
                             <th>Hạn sử dụng</th>
-{{--                            <th>Người lên đơn</th>--}}
                             <th>Trạng thái</th>
                             <th>Hành động</th>
                         </tr>
@@ -58,11 +58,12 @@
                                 <td>{{$inventory->code_product}}</td>
                                 <td>{{$inventory->name_product}}</td>
                                 <td>{{$inventory->amount}}</td>
+                                <td>{{$inventory->number_import}}</td>
                                 <td>{{$inventory->price}}</td>
                                 <td>{{$inventory->price_sale}}</td>
                                 <td>{{$inventory->date_add}}</td>
                                 <td>{{$inventory->expiry}}</td>
-{{--                                <td>{{$inventory->user_name}}</td>--}}
+                                {{--                                <td>{{$inventory->user_name}}</td>--}}
                                 <td>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input status_category" type="checkbox"

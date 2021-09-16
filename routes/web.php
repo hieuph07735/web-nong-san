@@ -15,6 +15,8 @@ use App\Http\Controllers\backend\ProductVariationController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 //Admin
 Route::group(['prefix' => 'admin'], function (){
     Route::get('/login', 'AuthController@getLogin')->name('get.login');
@@ -55,7 +57,6 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/xoa','backEnd\TypeProductController@delete')->name('type_product.delete');
         Route::post('/sua-trang-thai','backEnd\TypeProductController@status')->name('type_product.status');
     });
-
     //Quản lý sản phẩm
     Route::group(['prefix' => 'san-pham'], function() {
         Route::get('/{status}','backEnd\ProductController@index')->name('product.index');
@@ -65,7 +66,6 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'quan-tri'], function ()
         Route::post('/xoa', 'backEnd\ProductController@delete')->name('product.delete');
         Route::post('/sua-trang-thai', 'backEnd\ProductController@status')->name('product.status');
     });
-
     // Quản lý kho hàng
     Route::group(['prefix' => 'quan-ly-kho-hang'], function () {
         Route::get('/','backEnd\InventoryController@index')->name('inventory.index');
@@ -120,8 +120,12 @@ Route::get('san-pham', 'Client\ProductController@index')->name('product');
 Route::get('bo-suu-tap', 'Client\GalleryController@index')->name('gallery');
 Route::get('contact', 'Client\ContactController@index')->name('contact');
 Route::post('post-contact', 'Client\ContactController@post_contact')->name('post.contact');
-Route::get('gio-hang', 'Client\CartController@index')->name('cart');
-Route::get('chi-tiet-san-pham', 'Client\ProductDetailController@index')->name('product.detail');
+Route::get('chi-tiet-san-pham/{id}', 'Client\ProductDetailController@index')->name('product.detail');
 Route::get('thanh-toan', 'Client\CheckoutController@index')->name('checkout.detail');
+Route::get('gio-hang', 'Client\CartController@index')->name('cart');
+Route::get('them-san-pham/{id}', 'Client\CartController@addCart')->name('add.cart');
+Route::get('them-mot-san-pham/{id}', 'Client\CartController@addOneCart')->name('add.one.cart');
+Route::post('cap-nhat-san-pham', 'Client\CartController@updateCart')->name('update.cart');
+Route::delete('xoa-san-pham', 'Client\CartController@removeCart')->name('remove.cart');
 
 

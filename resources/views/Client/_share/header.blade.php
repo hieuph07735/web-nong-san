@@ -11,7 +11,7 @@
                 <div class="our-link">
                     <ul>
                         <li><a href="#"><i class="fas fa-location-arrow"></i> Vị trí cửa hàng</a></li>
-                        <li><a href="#"><i class="fas fa-headset"></i> Liên hệ</a></li>
+                        <li><a href="{{route('contact')}}"><i class="fas fa-headset"></i> Liên hệ</a></li>
                     </ul>
                 </div>
             </div>
@@ -23,6 +23,15 @@
                         <ul class="offer-box">
                             <li>
                                 <i class="fab fa-opencart"></i> Sale 20% với khách hàng thân thiết của cửa hàng
+                            </li>
+                            <li>
+                                <i class="fab fa-opencart"></i> Sale 30-50% với các loại rau mùa hè
+                            </li>
+                            <li>
+                                <i class="fab fa-opencart"></i> Sale 30-50% với các loại rau mùa hè
+                            </li>
+                            <li>
+                                <i class="fab fa-opencart"></i> Sale 30-50% với các loại rau mùa hè
                             </li>
                             <li>
                                 <i class="fab fa-opencart"></i> Sale 30-50% với các loại rau mùa hè
@@ -51,7 +60,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="Client/images/favicon.ico" class="logo" alt="" style="width:150px"></a>
+                <a class="navbar-brand" href="{{route('home')}}"><img src="Client/images/favicon.ico" class="logo" alt="" style="width:150px"></a>
             </div>
             <!-- End Header Navigation -->
 
@@ -61,14 +70,14 @@
                     <li class="nav-item active"><a class="nav-link" href="{{route('home')}}">Trang chủ</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{route('about')}}">Giới thiệu</a></li>
                     <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle " data-toggle="dropdown">Sản phẩm</a>
+                        <a href="{{route('product')}}" class="nav-link dropdown-toggle " data-toggle="dropdown">Sản phẩm</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('product')}}">Danh sách sản phẩm</a></li>
 {{--                            <li><a href="{{route('product.detail')}}">Chi tiết sản phẩm</a></li>--}}
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{route('gallery')}}">Danh mục sản phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Liên hệ</a></li>
+                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

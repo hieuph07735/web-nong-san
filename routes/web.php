@@ -140,6 +140,7 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
         Route::post('/update/{id}', [CustomerController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
     });
+    
 
     /**
      * Route group quản lý đặt hàng

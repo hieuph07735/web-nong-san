@@ -15,26 +15,29 @@ use File;
 
 class ProductController extends Controller
 {
-    public function index($status){
-        $datas = Product::where('status','!=',3)->get();
-        $unit_product = Unit::where('status','!=',3)->get();
-        return view('backEnd.products.list')->with(compact('datas','unit_product', 'status'));
+    public function index()
+    {
+        $data['products'] = Product::all();
+        $data['unit_product'] = Unit::where('status', '!=', 3)->get();
+        return view('backend.products.index', $data);
     }
 
-    public function product_create(){
-        $type_product = TypeProduct::where('status',1)->get();
-        return view('backEnd.products.add',compact('type_product'));
+    public function create()
+    {
+        $data['type_product'] = TypeProduct::where('status', 1)->get();
+        $data['unit_product'] = Unit::where('status', '!=', 3)->get();
+        return view('backend.products.create', $data);
     }
 
-    public function store(AddProduct $request){
-        $image= "";
+    public function store(AddProduct $request)
+    {
+        dd($request->all());
+        $image = "";
         $pr = new Product();
         if ($request->hasFile('image')) {
             $extension = $request->image[0]->extension();
             $filename = uniqid() . "." . $extension;
-            $path = $request->image[0]->storeAs(
-                'img_product', $filename, 'public'
-            );
+            $path = $request->image[0]->storeAs('img_product',$filename,'public');
             $image = "storage/" . $path;
         }
         $pr->type_product_id = $request->type_product_id;
@@ -44,79 +47,80 @@ class ProductController extends Controller
         $pr->description = $request->description;
         $pr->image = $image;
         $pr->status = $request->status;
-        $pr->code = 'TX'.time().rand(100000, 999999);
+        $pr->code = 'TX' . time() . rand(100000, 999999);
         $pr->save();
         $status = 1;
-        
-        return redirect()->route('product.index',compact('status'));
+
+        return redirect()->route('products.index');
     }
 
-    public function edit($id){
-        $type_product = TypeProduct::where('status',1)->get();
-        $unit_product = Unit::where('status','!=',3)->get();
+    public function edit($id)
+    {
+        $type_product = TypeProduct::where('status', 1)->get();
+        $unit_product = Unit::where('status', '!=', 3)->get();
         $data = Product::find($id);
-        return view('backEnd.products.edit',compact('data','type_product','unit_product'));
+        return view('backEnd.products.edit', compact('data', 'type_product', 'unit_product'));
     }
 
-    public function update(EditProduct $request ,$id){
+    public function update(EditProduct $request, $id)
+    {
         $image = 1;
-        if($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $extension = $request->image[0]->extension();
-            $filename =  uniqid(). "." . $extension;
+            $filename =  uniqid() . "." . $extension;
             $path = $request->image[0]->storeAs(
-                'img_product', $filename, 'public'
+                'img_product',
+                $filename,
+                'public'
             );
-            $image = "storage/".$path;
+            $image = "storage/" . $path;
         }
-       $pr = Product::find($id);
-       $pr->type_product_id = $request->type_product_id;
-       $pr->name = $request->name;
-       $pr->unit_id = $request->unit_id;
-       $pr->price_entry = $request->price_entry;
-       $pr->description = $request->description;
-       if($image != 1){
-        File::delete($pr->image);
-        $pr->image = $image;
+        $pr = Product::find($id);
+        $pr->type_product_id = $request->type_product_id;
+        $pr->name = $request->name;
+        $pr->unit_id = $request->unit_id;
+        $pr->price_entry = $request->price_entry;
+        $pr->description = $request->description;
+        if ($image != 1) {
+            File::delete($pr->image);
+            $pr->image = $image;
+        }
+        $pr->status = $request->status;
+        $pr->save();
+
+
+        $status = 2;
+        return redirect()->route('products.index', compact('status'));
     }
-       $pr->status = $request->status;
-       $pr->save();
 
-       
-       $status = 2;
-       return redirect()->route('product.index',compact('status'));
-    }
-
-
-    public function status(Request $request){
+    public function status(Request $request)
+    {
+        dd($request);
         try {
             $flight = Product::find($request->id);
-            if($flight->status == 1){
+            if ($flight->status == 1) {
                 $flight->status = 2;
-            }else{
+            } else {
                 $flight->status = 1;
             }
             $flight->save();
             $status = 1;
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             $status = 2;
         }
         return response()->json(['status' => $status]);
     }
 
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
         try {
             $flight = Product::find($request->id);
             $flight->status = 3;
             $flight->save();
             $status = 1;
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             $status = 2;
         }
         return response()->json(['status' => $status]);
     }
-
 }

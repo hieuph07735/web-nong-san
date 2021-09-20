@@ -97,7 +97,6 @@
                 <div class="col-lg-12">
                     <div class="title-all text-center">
                         <h1>Sản phẩm nổi bật</h1>
-
                     </div>
                 </div>
             </div>
@@ -112,7 +111,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row special-list">
                 @if(isset($inventories))
                     @foreach($inventories as $inventory)

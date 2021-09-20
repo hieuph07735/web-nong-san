@@ -14,9 +14,9 @@ use File;
 
 class UserController extends Controller
 {
-    public function index($status){
+    public function index(){
         $data = User::where('status', '!=', 3)->get();
-        return view('backEnd.users.list',compact('data','status'));
+        return view('backend.users.index',['data'=>$data]);
     }
 
     public function create(){

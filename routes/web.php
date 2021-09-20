@@ -24,7 +24,7 @@ use App\Http\Controllers\Backend\OrderController;
 
 //Admin    
 
-Route::group(['prefix'=>'admin'],function(){ 
+Route::group(['prefix' => 'admin'], function () {
     Route::get('/login', 'AuthController@getLogin')->name('get.login');
     Route::post('/login', 'AuthController@postLogin')->name('post.login');
     Route::get('/logout', 'AuthController@logout')->name('get.logout');
@@ -102,56 +102,69 @@ Route::group(['prefix'=>'admin'],function(){
 // });
 
 
-Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function (){
+Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
     /**
      * Router home administrator
      */
-    Route::get('/',[DashboardController::class,'index'])->name('dashboard');
-    Route::get('/dashboard',[DashboardController::class,'index'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
     /**
      * Route group quản lý tài khoản
      */
-    Route::group(['prefix'=>'users','as'=>'users.'], function(){
-        Route::get('/',[UserController::class,'index'])->name('index');
+    Route::group(['prefix' => 'users', 'as' => 'users.'], function () {
+        Route::get('/', [UserController::class, 'index'])->name('index');
     });
 
     /**
      * Route group quản lý sản phẩm
      */
-    Route::group(['prefix'=>'products','as'=>'products.'], function(){
-        Route::get('/',[ProductController::class,'index'])->name('index');
-        Route::get('/create',[ProductController::class,'create'])->name('create');
-        Route::post('/store',[ProductController::class,'store'])->name('store');
-        Route::get('/edit/{id}',[ProductController::class,'edit'])->name('edit');
-        Route::post('/update/{id}',[ProductController::class,'update'])->name('update');
-        Route::post('/destroy/{id}',[ProductController::class,'destroy'])->name('destroy');
-        Route::post('/edit-status',[ProductController::class,'status'])->name('status');
+    Route::group(['prefix' => 'products', 'as' => 'products.'], function () {
+        Route::get('/', [ProductController::class, 'index'])->name('index');
+        Route::get('/create', [ProductController::class, 'create'])->name('create');
+        Route::post('/store', [ProductController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
+        Route::post('/edit-status', [ProductController::class, 'status'])->name('status');
     });
 
     /**
      * Route group quản lý danh sách khách hàng
      */
-
-    Route::group(['prefix'=>'customers','as'=>'customers.'], function(){
-        Route::get('/',[CustomerController::class,'index'])->name('index');
-        Route::get('/create',[CustomerController::class,'create'])->name('create');
-        Route::post('/store',[CustomerController::class,'store'])->name('store');
-        Route::get('/edit/{id}',[CustomerController::class,'edit'])->name('edit');
-        Route::post('/update/{id}',[CustomerController::class,'update'])->name('update');
-        Route::post('/destroy/{id}',[CustomerController::class,'destroy'])->name('destroy');
+    Route::group(['prefix' => 'customers', 'as' => 'customers.'], function () {
+        Route::get('/', [CustomerController::class, 'index'])->name('index');
+        Route::get('/create', [CustomerController::class, 'create'])->name('create');
+        Route::post('/store', [CustomerController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [CustomerController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [CustomerController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [CustomerController::class, 'destroy'])->name('destroy');
     });
-        /**
+
+    /**
      * Route group quản lý đặt hàng
      */
-    Route::group(['prefix'=>'orders','as'=>'orders.'], function(){
-        Route::get('/',[OrderController::class,'index'])->name('index');
-        Route::get('/create',[OrderController::class,'create'])->name('create');
-        Route::post('/store',[OrderController::class,'store'])->name('store');
-        Route::get('/edit/{id}',[OrderController::class,'edit'])->name('edit');
-        Route::post('/update/{id}',[OrderController::class,'update'])->name('update');
-        Route::post('/destroy/{id}',[OrderController::class,'destroy'])->name('destroy');
+    Route::group(['prefix' => 'orders', 'as' => 'orders.'], function () {
+        Route::get('/', [OrderController::class, 'index'])->name('index');
+        Route::get('/create', [OrderController::class, 'create'])->name('create');
+        Route::post('/store', [OrderController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [OrderController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [OrderController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [OrderController::class, 'destroy'])->name('destroy');
     });
+
+    /**
+     * Route group quản lý danh mục sản phẩm
+     */
+    Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
+        Route::get('/', [CategoryController::class, 'index'])->name('index');
+        Route::get('/create', [CategoryController::class, 'create'])->name('create');
+        Route::post('/store', [CategoryController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('update');
+        Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
+    });
+
 
 
 
@@ -180,13 +193,17 @@ Route::get('bo-suu-tap', 'Client\GalleryController@index')->name('gallery');
 Route::get('contact', 'Client\ContactController@index')->name('contact');
 Route::post('post-contact', 'Client\ContactController@post_contact')->name('post.contact');
 Route::get('chi-tiet-san-pham/{id}', 'Client\ProductDetailController@index')->name('product.detail');
+/**
+ * Route tinh năng thanh toán phí giaop diện người dùng.
+ */
 Route::get('thanh-toan', 'Client\CheckoutController@index')->name('checkout');
 Route::post('/thanh-toan', 'Client\CheckoutController@postCheckout')->name('post.checkout');
 
+/**
+ * Route tính năng giỏ hàng phía giao diện người dùng.
+ */
 Route::get('gio-hang', 'Client\CartController@index')->name('cart');
 Route::get('them-san-pham/{id}', 'Client\CartController@addCart')->name('add.cart');
 Route::get('them-mot-san-pham/{id}', 'Client\CartController@addOneCart')->name('add.one.cart');
 Route::post('cap-nhat-san-pham', 'Client\CartController@updateCart')->name('update.cart');
 Route::delete('xoa-san-pham', 'Client\CartController@removeCart')->name('remove.cart');
-
-

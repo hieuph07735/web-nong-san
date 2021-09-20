@@ -11,7 +11,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh Xuân</strong>
+                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh
+                                    Xuân</strong>
                             </h1>
                             <p class="m-b-40"><br></p>
                             <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
@@ -24,7 +25,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh Xuân</strong>
+                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh
+                                    Xuân</strong>
                             </h1>
                             <p class="m-b-40"><br></p>
                             <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
@@ -37,7 +39,8 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh Xuân</strong>
+                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh
+                                    Xuân</strong>
                             </h1>
                             <p class="m-b-40"><br></p>
                             <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
@@ -57,13 +60,13 @@
     <div class="categories-shop">
         <div class="container">
             <div class="row">
-                @if(isset($categories))
-                    @foreach($categories as $category)
+                @if (isset($categories))
+                    @foreach ($categories as $category)
                         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                             <div class="shop-cat-box">
                                 <img class="img-fluid" style="width: 348px; height: 246px; object-fit: cover"
-                                     src="{{$category->image}}" alt=""/>
-                                <a class="btn hvr-hover" href="#">{{$category->name}}</a>
+                                    src="{{ $category->image }}" alt="" />
+                                <a class="btn hvr-hover" href="#">{{ $category->name }}</a>
                             </div>
                         </div>
                     @endforeach
@@ -78,12 +81,12 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="offer-box-products">
-                        <img class="img-fluid" src="Client/images/add-img-01.jpg" alt=""/>
+                        <img class="img-fluid" src="Client/images/add-img-01.jpg" alt="" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="offer-box-products">
-                        <img class="img-fluid" src="Client/images/add-img-02.jpg" alt=""/>
+                        <img class="img-fluid" src="Client/images/add-img-02.jpg" alt="" />
                     </div>
                 </div>
             </div>
@@ -101,7 +104,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                {{-- <div class="col-lg-12">
                     <div class="special-menu text-center">
                         <div class="button-group filter-button-group">
                             <button class="active" data-filter="*">Tất cả</button>
@@ -109,34 +112,32 @@
                             <button data-filter=".best-seller"> Sản phẩm Sales</button>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
             <div class="row special-list">
-                @if(isset($inventories))
-                    @foreach($inventories as $inventory)
+                @if (isset($products))
+                    @foreach ($products as $key => $item)
                         <div class="col-lg-3 col-md-6 special-grid best-seller">
                             <div class="products-single fix">
                                 <div class="box-img-hover">
-                                    <div class="type-lb">
-                                        <p class="sale">Sale</p>
-                                    </div>
-                                    <img style="width: 255px; height: 261px; object-fit: cover" src="{{$inventory->image}}" class="img-fluid" alt="Image">
+                                    <img style="width: 255px; height: 261px; object-fit: cover"
+                                        src="{{ asset($item->image) }}" class="img-fluid" alt="Image">
                                     <div class="mask-icon">
                                         <ul>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i
-                                                        class="fas fa-eye"></i></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                   title="Compare"><i
-                                                        class="fas fa-sync-alt"></i></a></li>
-                                            <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                   title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                            <li>
+                                                <a href="{{route('product.detail',$item->id) }}" data-toggle="tooltip" data-placement="right" title="Chi tiết">
+                                                    <i class="fas fa-eye"></i>
+                                                </a>
+                                            </li>
                                         </ul>
-                                        <a class="cart" href="#">Add to Cart</a>
+                                        <a class="cart" href="{{ route('add.cart', $item->id) }}">Thêm vào giỏ hàng</a>
                                     </div>
                                 </div>
                                 <div class="why-text">
-                                    <h4>{{$inventory->name_product}}</h4>
-                                    <h5>{{$inventory->price}}VNĐ</h5>
+                                    <h4>
+                                        <a href="{{route('product.detail',$item->id) }}">{{$item->name}}</a>
+                                    </h4>
+                                    <h5>{{$item->price_entry}}VNĐ</h5>
                                 </div>
                             </div>
                         </div>
@@ -162,7 +163,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-4">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="Client/images/blog-img.jpg" alt=""/>
+                            <img class="img-fluid" src="Client/images/blog-img.jpg" alt="" />
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
@@ -182,7 +183,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-4">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="Client/images/blog-img-01.jpg" alt=""/>
+                            <img class="img-fluid" src="Client/images/blog-img-01.jpg" alt="" />
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
@@ -202,7 +203,7 @@
                 <div class="col-md-6 col-lg-4 col-xl-4">
                     <div class="blog-box">
                         <div class="blog-img">
-                            <img class="img-fluid" src="Client/images/blog-img-02.jpg" alt=""/>
+                            <img class="img-fluid" src="Client/images/blog-img-02.jpg" alt="" />
                         </div>
                         <div class="blog-content">
                             <div class="title-blog">
@@ -230,7 +231,7 @@
         <div class="main-instagram owl-carousel owl-theme">
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-01.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-01.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -238,7 +239,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-02.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-02.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -246,7 +247,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-03.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-03.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -254,7 +255,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-04.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-04.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -262,7 +263,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-05.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-05.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -270,7 +271,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-06.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-06.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -278,7 +279,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-07.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-07.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -286,7 +287,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-08.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-08.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -294,7 +295,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-09.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-09.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -302,7 +303,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-05.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-05.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -312,6 +313,3 @@
     </div>
     <!-- End Instagram Feed  -->
 @endsection
-
-
-

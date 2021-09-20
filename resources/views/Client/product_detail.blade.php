@@ -3,7 +3,7 @@
     Chi tiết sản phẩm
 @endsection
 @section('content')
-    @if(session('success'))
+    @if (session('success'))
         <div class="alert alert-success">
             {{ session('success') }}
         </div>
@@ -15,8 +15,8 @@
                 <div class="col-lg-12">
                     <h2>Shop Detail</h2>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#">Shop</a></li>
-                        <li class="breadcrumb-item active">Shop Detail</li>
+                        <li class="breadcrumb-item"><a href="#">Cửa hàng</a></li>
+                        <li class="breadcrumb-item active">Chi tiết sản phẩm</li>
                     </ul>
                 </div>
             </div>
@@ -31,10 +31,9 @@
                 <div class="col-xl-5 col-lg-5 col-md-6">
                     <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
-                            <div class="carousel-item active"><img class="d-block w-100" src="{{$product->image}}"
-                                                                   alt="First slide"></div>
-                            {{--                            <div class="carousel-item"> <img class="d-block w-100" src="Client/images/big-img-02.jpg" alt="Second slide"> </div>--}}
-                            {{--                            <div class="carousel-item"> <img class="d-block w-100" src="Client/images/big-img-03.jpg" alt="Third slide"> </div>--}}
+                            <div class="carousel-item active">
+                                <img class="d-block w-100" src="{{ $product->image }}" alt="First slide">
+                            </div>
                         </div>
                         <a class="carousel-control-prev" href="#carousel-example-1" role="button" data-slide="prev">
                             <i class="fa fa-angle-left" aria-hidden="true"></i>
@@ -46,53 +45,37 @@
                         </a>
                         <ol class="carousel-indicators">
                             <li data-target="#carousel-example-1" data-slide-to="0" class="active">
-                                <img class="d-block w-100 img-fluid" src="{{$product->image}}" alt=""/>
+                                <img class="d-block w-100 img-fluid" src="#" alt="" />
                             </li>
-                            {{--<li data-target="#carousel-example-1" data-slide-to="1">--}}
-                            {{--<img class="d-block w-100 img-fluid" src="Client/images/smp-img-02.jpg" alt="" />--}}
-                            {{--                            </li>--}}
-                            {{--                            <li data-target="#carousel-example-1" data-slide-to="2">--}}
-                            {{--                                <img class="d-block w-100 img-fluid" src="Client/images/smp-img-03.jpg" alt="" />--}}
-                            {{--                            </li>--}}
                         </ol>
                     </div>
                 </div>
                 <div class="col-xl-7 col-lg-7 col-md-6">
                     <div class="single-product-details">
-                        <h2>{{$product->name}}</h2>
-                        @if($inventory->price_sale == 0)
+                        {{-- <h2>{{$product->name}}</h2>
+                        @if ($inventory->price_sale == 0)
                             <h5>{{$inventory->price}}</h5>
                         @else
                             <h5>
-                                <del style="margin-right: 5px">{{number_format($inventory->price)}}VNĐ</del>{{$inventory->price_sale}}
-                                VNĐ
+                                <del style="margin-right: 5px"></del>
                             </h5>
-                        @endif
-                        <p class="available-stock"><span> Số lượng trong kho còn: {{$inventory->amount}} </span>
+                        @endif --}}
                         <p>
-                        <h4>Mô tả</h4>
-                        <p>{{$product->description}}</p>
-{{--                        <ul>--}}
-{{--                            <li>--}}
-{{--                                <div class="form-group quantity-box">--}}
-{{--                                    <label class="control-label">Quantity</label>--}}
-{{--                                    <input class="form-control" value="0" min="0" max="{{$inventory->amount}}" type="number">--}}
-{{--                                </div>--}}
-{{--                            </li>--}}
-{{--                        </ul>--}}
-
+                        <h4>{{$product->name}}</h4>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                         <div class="price-box-bar">
                             <div class="cart-and-bay-btn">
-                                <a class="btn hvr-hover" data-fancybox-close="" href="{{ route('add.one.cart', $product->id) }}">Buy New</a>
-                                <a class="btn hvr-hover" data-fancybox-close="" href="{{ route('add.cart', $product->id) }}">Add to cart</a>
+                                <a class="btn hvr-hover" data-fancybox-close=""
+                                    href="{{ route('add.one.cart', $product->id) }}">Mua Ngay</a>
+                                <a class="btn hvr-hover" data-fancybox-close=""
+                                    href="{{ route('add.cart', $product->id) }}">Thêm vào giỏ</a>
                             </div>
                         </div>
 
                         <div class="add-to-btn">
-                            <div class="add-comp">
-                                <a class="btn hvr-hover" href="#"><i class="fas fa-heart"></i> Add to wishlist</a>
-                                <a class="btn hvr-hover" href="#"><i class="fas fa-sync-alt"></i> Add to Compare</a>
-                            </div>
                             <div class="share-bar">
                                 <a class="btn hvr-hover" href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
                                 <a class="btn hvr-hover" href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
@@ -108,11 +91,11 @@
             <div class="row my-5">
                 <div class="card card-outline-secondary my-4" style="width: 100%">
                     <div class="card-header">
-                        <h2>Product Reviews</h2>
+                        <h2>Mô tả sản phẩm</h2>
                     </div>
                     <div class="card-body">
-                        <div class="fb-comments" data-href="{{ url()->current() }}" data-width="100%"
-                             data-numposts="5">
+                        <div class="fb-comments" data-href="{{ url()->current() }}" data-width="100%" data-numposts="5">
+                          <p>  {{$product->description}}</p>
                         </div>
                     </div>
                 </div>
@@ -125,27 +108,29 @@
                         <p>Dưới dây là sản phẩm nổi bật</p>
                     </div>
                     <div class="featured-products-box owl-carousel owl-theme">
-                        @foreach($inventories as $inventory)
+                        @foreach ($featured_products as $featured)
                             <div class="item">
                                 <div class="products-single fix">
                                     <div class="box-img-hover">
-                                        <img style="width: 255px; height: 261px; object-fit: cover" src="{{$inventory->image}}" class="img-fluid" alt="Image">
+                                        <img style="width: 255px; height: 261px; object-fit: cover"
+                                            src="{{ asset($featured->image) }}" class="img-fluid" alt="Image">
                                         <div class="mask-icon">
                                             <ul>
-                                                <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                       title="View"><i
-                                                            class="fas fa-eye"></i></a></li>
-                                                <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                       title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                       title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                <li>
+                                                    <a href="{{ route('product.detail', $featured->id) }}" data-toggle="tooltip"
+                                                        data-placement="right" title="Chi tiết">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+                                                </li>
                                             </ul>
-                                            <a class="cart" href="#">Add to Cart</a>
+                                            <a class="cart" href="{{ route('add.cart', $featured->id) }}">Thêm vào giỏ hàng</a>
                                         </div>
                                     </div>
                                     <div class="why-text">
-                                        <h4>{{$inventory->name_product}}</h4>
-                                        <h5>{{$inventory->price}}</h5>
+                                        <h4>
+                                            <a href="{{route('product.detail',$featured->id) }}">{{$featured->name}}</a>
+                                        </h4>
+                                        <h5>{{ $featured->price_entry }}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -163,7 +148,7 @@
         <div class="main-instagram owl-carousel owl-theme">
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-01.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-01.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -171,7 +156,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-02.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-02.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -179,7 +164,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-03.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-03.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -187,7 +172,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-04.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-04.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -195,7 +180,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-05.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-05.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -203,7 +188,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-06.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-06.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -211,7 +196,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-07.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-07.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -219,7 +204,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-08.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-08.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -227,7 +212,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-09.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-09.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -235,7 +220,7 @@
             </div>
             <div class="item">
                 <div class="ins-inner-box">
-                    <img src="Client/images/instagram-img-05.jpg" alt=""/>
+                    <img src="Client/images/instagram-img-05.jpg" alt="" />
                     <div class="hov-in">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                     </div>
@@ -247,6 +232,3 @@
 
 
 @endsection
-
-
-

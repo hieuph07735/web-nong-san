@@ -31,7 +31,6 @@ class ProductController extends Controller
 
     public function store(AddProduct $request)
     {
-        dd($request->all());
         $image = "";
         $pr = new Product();
         if ($request->hasFile('image')) {
@@ -95,7 +94,6 @@ class ProductController extends Controller
 
     public function status(Request $request)
     {
-        dd($request);
         try {
             $flight = Product::find($request->id);
             if ($flight->status == 1) {
@@ -105,7 +103,7 @@ class ProductController extends Controller
             }
             $flight->save();
             $status = 1;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $status = 2;
         }
         return response()->json(['status' => $status]);
@@ -118,7 +116,7 @@ class ProductController extends Controller
             $flight->status = 3;
             $flight->save();
             $status = 1;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $status = 2;
         }
         return response()->json(['status' => $status]);

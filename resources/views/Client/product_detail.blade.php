@@ -32,7 +32,7 @@
                     <div id="carousel-example-1" class="single-product-slider carousel slide" data-ride="carousel">
                         <div class="carousel-inner" role="listbox">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="{{ $product->image }}" alt="First slide">
+                                <img class="d-block w-100" src="{{ asset($product->image) }}" alt="First slide">
                             </div>
                         </div>
                         <a class="carousel-control-prev" href="#carousel-example-1" role="button" data-slide="prev">

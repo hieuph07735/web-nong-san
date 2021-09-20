@@ -18,7 +18,7 @@ class CreateOrdersTable extends Migration
             $table->bigInteger('customer_id');
             $table->datetime('date_order');
             $table->string('total_price');
-            $table->tinyText('note');
+            $table->text('note');
             $table->timestamps();
         });
     }

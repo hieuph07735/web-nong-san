@@ -44,7 +44,7 @@ class UnitController extends Controller
         return view('backEnd.units.edit',compact('data'));
     }
 
-    public function update(EditUnit $request ,$id){
+    public function update(Request $request ,$id){
         try {
             $flight = Unit::find($request->id);
             $flight->name = $request->name;

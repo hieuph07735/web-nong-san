@@ -45,9 +45,9 @@ class TypeProductController extends Controller
     {
         try {
             if ($request->hasFile('image')) {
-                $extension = $request->image->extension();
+                $extension = $request->image[0]->extension();
                 $filename = uniqid() . "." . $extension;
-                $path = $request->image->storeAs(
+                $path = $request->image[0]->storeAs(
                     'type_product_image', $filename, 'public'
                 );
                 $image = "storage/" . $path;
@@ -63,8 +63,8 @@ class TypeProductController extends Controller
         } catch (Exception $e) {
             $status = 2;
         }
-        $datas = TypeProduct::all();
-        return route('type_product.index', compact('datas', 'status'));
+        $datas = TypeProduct::OrderBy('id', 'DESC')->get();
+        return redirect()->route('type_product.index', compact('datas', 'status'));
     }
 
     public function edit(Request $request, $id)
@@ -76,14 +76,14 @@ class TypeProductController extends Controller
         return view('backEnd.type_products.edit', compact('data', 'data_category'));
     }
 
-    public function update(EditTypeProduct $request, $id)
+    public function update(Request $request, $id)
     {
         try {
             $image = 1;
             if($request->hasFile('image')){
-                $extension = $request->image->extension();
+                $extension = $request->image[0]->extension();
                 $filename =  uniqid(). "." . $extension;
-                $path = $request->image->storeAs(
+                $path = $request->image[0]->storeAs(
                     'type_product_image', $filename, 'public'
                 );
                 $image = "storage/".$path;

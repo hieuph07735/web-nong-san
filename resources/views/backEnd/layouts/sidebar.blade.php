@@ -30,6 +30,24 @@
                 </a>
             </li>
             <li>
+                <a href="{{route('units.index')}}">
+                    <i class="nc-icon nc-calendar-60"></i>
+                    <p>Nhà cung cấp</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('category.index')}}">
+                    <i class="nc-icon nc-calendar-60"></i>
+                    <p>Danh mục sản phẩm</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('type_product.index')}}">
+                    <i class="nc-icon nc-calendar-60"></i>
+                    <p>Loại sản phẩm</p>
+                </a>
+            </li>
+            <li>
                 <a data-toggle="collapse" href="#pagesExamples">
                     <i class="nc-icon nc-book-bookmark"></i>
                     <p>
@@ -87,6 +105,12 @@
                 <a href="{{route('orders.index')}}">
                     <i class="nc-icon nc-calendar-60"></i>
                     <p>Đơn hàng</p>
+                </a>
+            </li>
+            <li>
+                <a href="{{route('manage-contact.index')}}">
+                    <i class="nc-icon nc-calendar-60"></i>
+                    <p>Liên hệ</p>
                 </a>
             </li>
             {{-- <li>

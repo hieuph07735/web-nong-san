@@ -9,7 +9,7 @@ use App\Http\Controllers\backend\ProductVariationController;
 use App\Http\Controllers\backEnd\UserController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\OrderController;
-
+use App\Http\Controllers\Backend\SlideContrller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -165,7 +165,19 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
         Route::post('/update/{id}', [CategoryController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
     });
-
+  
+     /**
+     * Route group quản lý slide
+     */
+    Route::group(['prefix' => 'slide', 'as' => 'slide.'], function () {
+        Route::get('/', [SlideContrller::class, 'index'])->name('index');
+        Route::get('/create', [SlideContrller::class, 'create'])->name('create');
+        Route::post('/store', [SlideContrller::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [SlideContrller::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [SlideContrller::class, 'update'])->name('update');
+        Route::post('/delete',[SlideContrller::class, 'delete'])->name('delete');
+        Route::post('/edit-status', [SlideContrller::class, 'status'])->name('status');
+    });
 
 
 

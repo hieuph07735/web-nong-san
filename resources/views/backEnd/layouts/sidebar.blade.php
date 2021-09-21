@@ -54,6 +54,30 @@
                 </div>
             </li>
             <li>
+                <a data-toggle="collapse" href="#pagesExamples_slide">
+                    <i class="nc-icon nc-book-bookmark"></i>
+                    <p>
+                        Slide <b class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse " id="pagesExamples_slide">
+                    <ul class="nav">
+                        <li>
+                            <a href="{{route('slide.index')}}">
+                                <span class="sidebar-mini-icon">D</span>
+                                <span class="sidebar-normal"> Danh sách </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{route('slide.create')}}">
+                                <span class="sidebar-mini-icon">T</span>
+                                <span class="sidebar-normal">tạo mới</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li>
                 <a href="{{route('customers.index')}}">
                     <i class="nc-icon nc-calendar-60"></i>
                     <p>Khách hàng</p>

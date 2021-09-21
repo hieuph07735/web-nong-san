@@ -6,8 +6,10 @@
     <!-- Start Slider -->
     <div id="slides-shop" class="cover-slides">
         <ul class="slides-container">
+        @if (isset($slide))
+                    @foreach ($slide as $slide)
             <li class="text-center">
-                <img src="Client/images/banner-01.jpg" alt="">
+                <img src="{{ asset($slide->image) }}" alt="">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -15,39 +17,14 @@
                                     Xuân</strong>
                             </h1>
                             <p class="m-b-40"><br></p>
-                            <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
+                            <p><a class="btn hvr-hover" href="{{route('home')}}">Mua ngay</a></p>
                         </div>
                     </div>
                 </div>
             </li>
-            <li class="text-center">
-                <img src="Client/images/banner-02.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh
-                                    Xuân</strong>
-                            </h1>
-                            <p class="m-b-40"><br></p>
-                            <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="text-center">
-                <img src="Client/images/banner-03.jpg" alt="">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h1 class="m-b-20"><strong>Xin chào bạn đến với <br> Cửa hàng nông sản Thanh
-                                    Xuân</strong>
-                            </h1>
-                            <p class="m-b-40"><br></p>
-                            <p><a class="btn hvr-hover" href="#">Mua ngay</a></p>
-                        </div>
-                    </div>
-                </div>
-            </li>
+            @endforeach
+                @endif
+           
         </ul>
         <div class="slides-navigation">
             <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>

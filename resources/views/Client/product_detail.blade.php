@@ -62,8 +62,7 @@
                         @endif --}}
                         <p>
                         <h4>{{$product->name}}</h4>
-                        <br>
-                        <br>
+                        <h4><b>Giá: </b>{{$product->price_entry}} VNĐ</h4>
                         <br>
                         <br>
                         <div class="price-box-bar">
@@ -229,6 +228,4 @@
         </div>
     </div>
     <!-- End Instagram Feed  -->
-
-
 @endsection

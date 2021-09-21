@@ -84,27 +84,16 @@ class CategoryController extends Controller
     }
 
     public function status(Request $request){
-
         try {
-            $flight = Category::find($request->id);
-            if($flight->status == 1){
-                $status = 2;
-            }else{
-                $status = 1;
-            }
-            $flight->status = $status;
-            $flight->save();
-            $status = 1;
+            $product = Category::find($request->id);
+            $product->status = $request->status;
+            $product->save();
+        } catch (\Exception $e) {
         }
-        catch (Exception $e)
-        {
-            $status = 2;
-        }
-        return response()->json(['status' => $status]);
+        return response()->json(['success' => 'Thay đổi trạng thái thành công']);
     }
 
     public function delete(Request $request){
-
         try {
             $flight = Category::find($request->id);
             File::delete($flight->image);

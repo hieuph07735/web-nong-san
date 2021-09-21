@@ -73,11 +73,8 @@
                         <a href="{{route('product')}}" class="nav-link dropdown-toggle " data-toggle="dropdown">Sản phẩm</a>
                         <ul class="dropdown-menu">
                             <li><a href="{{route('product')}}">Danh sách sản phẩm</a></li>
-{{--                            <li><a href="{{route('product.detail')}}">Chi tiết sản phẩm</a></li>--}}
                         </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="{{route('gallery')}}">Danh mục sản phẩm</a></li>
-                   
+                    </li>                   
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

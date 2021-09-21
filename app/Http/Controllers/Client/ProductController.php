@@ -12,12 +12,17 @@ class ProductController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $inventories = Inventory::all();
-        foreach ($inventories as $inventory) {
-            $product = Product::query()->find($inventory->product_id);
-            $inventory->name_product = $product->name ?? "";
-            $inventory->image = $product->image ?? "";
-        }
-        return view('Client.product',compact('inventories', 'categories'));
+        $data = Product::all();
+        return view('Client.product',compact('categories','data'));
+    }
+
+
+    public function getProductByType($id){
+
+        $data = Product::all()->where('type_product_id','=',$id)->take(4);
+
+        return view('client.product',['data'=>$data]);
+
+
     }
 }

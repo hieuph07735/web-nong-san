@@ -159,6 +159,7 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
 Route::get('/', 'Client\HomeController@index')->name('home');
 Route::get('gioi-thieu', 'Client\AboutController@index')->name('about');
 Route::get('san-pham', 'Client\ProductController@index')->name('product');
+Route::get('type-product/{id}', 'Client\ProductController@getProductByType')->name('get.pr.type');
 Route::get('bo-suu-tap', 'Client\GalleryController@index')->name('gallery');
 Route::get('contact', 'Client\ContactController@index')->name('contact');
 Route::post('post-contact', 'Client\ContactController@post_contact')->name('post.contact');

@@ -32,6 +32,9 @@
                                         Điện thoại
                                     </th>
                                     <th>
+                                        Tổng tiền
+                                    </th>
+                                    <th>
                                         Ngày tạo
                                     </th>
                                     <th>
@@ -56,6 +59,9 @@
                                         </td>
                                         <td class="text-left">
                                             {{$item->customer->phone}}
+                                        </td>
+                                        <td>
+                                            {{$item->total_price}}
                                         </td>
                                         <td class="text-left">
                                             {{ $item->created_at }}

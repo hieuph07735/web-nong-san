@@ -8,6 +8,7 @@ use App\Models\Slide;
 use App\Http\Requests\AddSlide;
 use App\Http\Requests\EditSlide;
 use File;
+
 class SlideContrller extends Controller
 {
     public function index()
@@ -27,10 +28,10 @@ class SlideContrller extends Controller
         if ($request->hasFile('image')) {
             $extension = $request->image->extension();
             $filename = uniqid() . "." . $extension;
-            $path = $request->image->storeAs('img_product',$filename,'public');
+            $path = $request->image->storeAs('img_product', $filename, 'public');
             $image = "storage/" . $path;
         }
-        
+
         $pr->name = $request->name;
         $pr->image = $image;
         $pr->status = $request->status;
@@ -59,7 +60,7 @@ class SlideContrller extends Controller
             $image = "storage/" . $path;
         }
         $pr = Slide::find($id);
-    
+
         $pr->name = $request->name;
         if ($image != 1) {
             File::delete($pr->image);
@@ -73,35 +74,33 @@ class SlideContrller extends Controller
         return redirect()->route('slide.index', compact('status'));
     }
 
-    public function status(Request $request){
+    public function status(Request $request)
+    {
 
         try {
             $flight = Slide::find($request->id);
-            if($flight->status == 1){
+            if ($flight->status == 1) {
                 $status = 2;
-            }else{
+            } else {
                 $status = 1;
             }
             $flight->status = $status;
             $flight->save();
             $status = 1;
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             $status = 2;
         }
         return response()->json(['status' => $status]);
     }
-    public function delete(Request $request){
+    public function delete(Request $request)
+    {
 
         try {
             $flight = Slide::find($request->id);
             File::delete($flight->image);
             $flight->delete();
             $status = 1;
-        }
-        catch (Exception $e)
-        {
+        } catch (Exception $e) {
             $status = 2;
         }
         return response()->json(['status' => $status]);

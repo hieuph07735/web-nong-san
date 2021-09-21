@@ -23,7 +23,6 @@ class TypeProductController extends Controller
             $category = Category::query()->find($data->category_id);
             $data->name_caterogy = $category->name ?? "";
         }
-        //dd($datas);
         return view('backEnd.type_products.list', compact('datas', 'status'));
     }
     public function product_create(){

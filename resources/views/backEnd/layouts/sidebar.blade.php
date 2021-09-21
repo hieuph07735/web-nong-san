@@ -17,12 +17,12 @@
             </div>
         </div>
         <ul class="nav">
-            <li>
+            {{-- <li>
                 <a href="{{route('dashboard')}}">
                     <i class="nc-icon nc-bank"></i>
                     <p>tổng quan</p>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a href="{{route('users.index')}}">
                     <i class="nc-icon nc-calendar-60"></i>

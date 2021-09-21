@@ -126,7 +126,7 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
         Route::get('/edit/{id}', [ProductController::class, 'edit'])->name('edit');
         Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
-        Route::post('/edit-status', [ProductController::class, 'status'])->name('status');
+        Route::post('/change-status', [ProductController::class, 'status'])->name('status');
     });
 
     /**

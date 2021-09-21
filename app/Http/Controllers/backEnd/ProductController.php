@@ -94,19 +94,14 @@ class ProductController extends Controller
 
     public function status(Request $request)
     {
+        // dd($request->all());
         try {
-            $flight = Product::find($request->id);
-            if ($flight->status == 1) {
-                $flight->status = 2;
-            } else {
-                $flight->status = 1;
-            }
-            $flight->save();
-            $status = 1;
+            $product = Product::find($request->id);
+            $product->status = $request->status;
+            $product->save();
         } catch (\Exception $e) {
-            $status = 2;
         }
-        return response()->json(['status' => $status]);
+        return response()->json(['success' => 'Thay đổi trạng thái thành công']);
     }
 
     public function delete(Request $request)

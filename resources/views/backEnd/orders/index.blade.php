@@ -46,19 +46,16 @@
                                             {{ $key + 1 }}
                                         </td>
                                         <td>
-                                            {{-- @php
-                                               dd ($item->customer->name);
-                                            @endphp --}}
-                                            {{-- {{$item->customer->name}} --}}
+                                            {{$item->customer->name}}
                                         </td>
                                         <td>
-                                            {{ $item->total_price }}
+                                            {{$item->customer->email}}
                                         </td>
                                         <td class="text-left">
-                                            {{ $item->address }}
+                                            {{$item->customer->address}}
                                         </td>
                                         <td class="text-left">
-                                            {{ $item->phone }}
+                                            {{$item->customer->phone}}
                                         </td>
                                         <td class="text-left">
                                             {{ $item->created_at }}
@@ -73,9 +70,6 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{-- <div class="lfloat-right">
-                            {{ $data->links() }}
-                        </div> --}}
                     </div>
                 </div>
             </div>

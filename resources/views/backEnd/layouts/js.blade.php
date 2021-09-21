@@ -32,7 +32,7 @@
 <!-- Chart JS -->
 <script src="{{ asset('backend/assets/js/plugins/chartjs.min.js') }}"></script>
 <!--  Notifications Plugin    -->
-<script src="{{ asset('backend/assets/js/plugins/bootstrap-notify.j') }}s"></script>
+<script src="{{ asset('backend/assets/js/plugins/bootstrap-notify.js') }}"></script>
 <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('backend/assets/js/paper-dashboard.min1036.js?v=2.1.1') }}" type="text/javascript"></script>
 {{-- <!-- Paper Dashboard DEMO methods, don't include it in your project! -->

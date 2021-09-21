@@ -57,11 +57,26 @@
                                         </td>
                                         <td>{{ $item->code }}</td>
                                         <td>{{ $item->name }}</td>
+                                        <?php
+                                        $type_pr = DB::table('type_products')->get();
+                                        ?>
                                         <td>
+                                            @foreach ($type_pr as $value)
+                                                @if ($value->id == $item->type_product_id)
+                                                    <span
+                                                        class="badge rounded-pill bg-info text-dark">{{ $item->name }}</span>
 
+                                                @endif
+                                            @endforeach
                                         </td>
                                         <td>
-
+                                            @foreach ($unit_product as $value)
+                                                @if ($value->id == $item->unit_id)
+                                                    <span
+                                                        class="badge rounded-pill bg-info text-dark">{{ $item->name }}
+                                                    </span>
+                                                @endif
+                                            @endforeach
                                         </td>
                                         <td>
                                             {{ $item->price_entry }}
@@ -70,16 +85,20 @@
                                             {{ $item->description }}
                                         </td>
                                         <td>
-                                            <input class="bootstrap-switch" type="checkbox" data-toggle="switch" data-id="{{$item->id}}"
-                                                {{ $item->status == 1 ? 'checked' : '' }}
+                                            <input class="bootstrap-switch" type="checkbox" data-toggle="toggle"
+                                                data-id="{{ $item->id }}"
                                                 data-on-label="<i class='nc-icon nc-check-2'></i>"
                                                 data-off-label="<i class='nc-icon nc-simple-remove'></i>"
-                                                data-on-color="success" data-off-color="success" />
+                                                data-on-color="success" data-off-color="success" data-on="Active"
+                                                data-off="InActive" {{ $item->status == 1 ? 'checked' : '' }} />
                                         </td>
                                         <td>
                                             <a href="{{ route('products.edit', $item->id) }}" class="btn btn-success">
-                                               edit
+                                                Sửa
                                             </a>
+                                            <form action="{{ 'products.destroy,$item->id' }}" method="post">
+                                                <button style="submit" class="btn btn-danger">xóa</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -92,36 +111,26 @@
     </div>
 @endsection
 @section('js')
-<script>
+    <script>
+        $(function() {
+            $('.bootstrap-switch').on('switchChange.bootstrapSwitch', function(e, state) {
+                var status = $(this).prop('checked') == true ? 1 : 0;
+                var product_id = $(this).data('id');
 
-    $(function() {
-      $('.bootstrap-switch').change(function() {
-  
-          var status = $(this).prop('checked') == true ? 1 : 0; 
-  
-          var pro_id = $(this).data('id'); 
-  
-          $.ajax({
-  
-              type: "POST",
-  
-              dataType: "json",
-  
-              url: '{{route('products.status')}}',
-  
-              data: {'status': status, 'pro_id': pro_id},
-  
-              success: function(data){
-  
-                console.log(data.success)
-  
-              }
-  
-          });
-  
-      })
-  
-    })
-  
-  </script>
+                $.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: '{{ route('products.status') }}',
+                    data: {
+                        _token: '{{ csrf_token() }}',
+                        'status': status,
+                        'id': product_id
+                    },
+                    success: function(data) {
+                        console.log(data.success)
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

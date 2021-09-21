@@ -24,9 +24,9 @@ class CategoryController extends Controller
     public function store(AddCategory $request){
         try {
             if($request->hasFile('image')){
-                $extension = $request->image->extension();
+                $extension = $request->image[0]->extension();
                 $filename =  uniqid(). "." . $extension;
-                $path = $request->image->storeAs(
+                $path = $request->image[0]->storeAs(
                     'category_image', $filename, 'public'
                 );
                 $image = "storage/".$path;
@@ -43,7 +43,7 @@ class CategoryController extends Controller
         {
             $status = 2;
         }
-        $datas = Category::all();
+        $datas = Category::OrderBy('id', 'DESC')->get();
         return view('backEnd.categories.list',compact('datas','status'));
     }
 
@@ -52,13 +52,13 @@ class CategoryController extends Controller
         return view('backEnd.categories.edit',compact('data'));
     }
 
-    public function update(EditCategory $request ,$id){
+    public function update(Request $request ,$id){
         try {
             $image = 1;
             if($request->hasFile('image')){
-                $extension = $request->image->extension();
+                $extension = $request->image[0]->extension();
                 $filename =  uniqid(). "." . $extension;
-                $path = $request->image->storeAs(
+                $path = $request->image[0]->storeAs(
                     'category_image', $filename, 'public'
                 );
                 $image = "storage/".$path;

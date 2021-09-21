@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backEnd\AdminController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backEnd\ProductController;
 use App\Http\Controllers\backend\ProductVariationTypeController;
 use App\Http\Controllers\backend\ProductVariationController;
@@ -10,6 +11,11 @@ use App\Http\Controllers\backEnd\UserController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\SlideContrller;
+use App\Http\Controllers\Backend\UnitController;
+use App\Http\Controllers\Backend\ContactController;
+use App\Http\Controllers\Backend\TypeProductController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -127,6 +133,7 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
         Route::post('/update/{id}', [ProductController::class, 'update'])->name('update');
         Route::post('/destroy/{id}', [ProductController::class, 'destroy'])->name('destroy');
         Route::post('/edit-status', [ProductController::class, 'status'])->name('status');
+
     });
 
     /**
@@ -157,13 +164,25 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
     /**
      * Route group quản lý danh mục sản phẩm
      */
-    Route::group(['prefix' => 'categories', 'as' => 'categories.'], function () {
-        Route::get('/', [CategoryController::class, 'index'])->name('index');
-        Route::get('/create', [CategoryController::class, 'create'])->name('create');
-        Route::post('/store', [CategoryController::class, 'store'])->name('store');
-        Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
-        Route::post('/update/{id}', [CategoryController::class, 'update'])->name('update');
-        Route::post('/destroy/{id}', [CategoryController::class, 'destroy'])->name('destroy');
+     Route::group(['prefix' => 'category', 'as' => 'category.'], function () {
+         Route::get('/', [CategoryController::class, 'index'])->name('index');
+         Route::get('/create', [CategoryController::class, 'create'])->name('create');
+         Route::post('/store', [CategoryController::class, 'store'])->name('store');
+         Route::get('/edit/{id}', [CategoryController::class, 'edit'])->name('edit');
+         Route::post('/update/{id}', [CategoryController::class, 'update'])->name('update');
+         Route::post('/xoa', [CategoryController::class, 'delete'])->name('delete');
+         Route::post('/sua-trang-thai',[CategoryController::class, 'status'])->name('status');
+        
+     });
+     Route::group(['prefix' => 'units', 'as' => 'units.'], function () {
+        Route::get('/', [UnitController::class, 'index'])->name('index');
+        Route::get('/create', [UnitController::class, 'create'])->name('create');
+        Route::post('/store', [UnitController::class, 'store'])->name('store');
+        Route::get('/edit/{id}', [UnitController::class, 'edit'])->name('edit');
+        Route::post('/update/{id}', [UnitController::class, 'update'])->name('update');
+        Route::post('/xoa', [UnitController::class, 'delete'])->name('delete');
+        Route::post('/sua-trang-thai',[UnitController::class, 'status'])->name('status');
+       
     });
   
      /**
@@ -178,6 +197,35 @@ Route::group(['middleware' => 'checkLogin', 'prefix' => 'admin'], function () {
         Route::post('/delete',[SlideContrller::class, 'delete'])->name('delete');
         Route::post('/edit-status', [SlideContrller::class, 'status'])->name('status');
     });
+    Route::group(['prefix' => 'manage-contact', 'as' => 'manage-contact.'], function () {
+        Route::get('/', [ContactController::class, 'index'])->name('index');
+        Route::get('abc123/{id}', [ContactController::class, 'Unactive_contact'])->name('unactive');
+        Route::get('active/{id}', [ContactController::class,  'Active_contact'])->name('active');
+       
+});
+Route::group(['prefix' => 'type_product', 'as' => 'type_product.'], function () {   
+    Route::get('/', [TypeProductController::class, 'index'])->name('index');
+    Route::get('/create', [TypeProductController::class, 'create'])->name('create');
+    Route::post('/store', [TypeProductController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [TypeProductController::class, 'edit'])->name('edit');
+    Route::post('/update/{id}', [TypeProductController::class, 'update'])->name('update');
+    Route::post('/xoa', [TypeProductController::class, 'delete'])->name('delete');
+    Route::post('/sua-trang-thai', [TypeProductController::class, 'status'])->name('status');
+
+});
+  //Quản lý loại sản phẩm
+//     Route::group(['prefix' => 'loai-san-pham'], function() {
+//         Route::get('/','backEnd\TypeProductController@index')->name('type_product.index');
+//         Route::get('/tao-moi','backEnd\TypeProductController@create')->name('type_product.create');
+//         Route::get('/tao-moi-san-pham','backEnd\TypeProductController@product_create')->name('product_create');
+//         Route::post('/tao-moi-type','backEnd\TypeProductController@store')->name('type_product.store');
+//         Route::get('/sua/{id}','backEnd\TypeProductController@edit')->name('type_product.edit');
+//         Route::post('/sua/{id}','backEnd\TypeProductController@update')->name('type_product.update');
+//         Route::post('/xoa','backEnd\TypeProductController@delete')->name('type_product.delete');
+//         Route::post('/sua-trang-thai','backEnd\TypeProductController@status')->name('type_product.status');
+//     });
+  
+
 
 
 

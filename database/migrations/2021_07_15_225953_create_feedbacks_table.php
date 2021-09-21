@@ -19,6 +19,7 @@ class CreateFeedbacksTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('content');
+            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

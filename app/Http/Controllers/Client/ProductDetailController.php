@@ -11,15 +11,10 @@ class ProductDetailController extends Controller
 {
     public function index($id)
     {
-        $inventory = Inventory::query()->where('product_id', '=', $id)->first();
-        $product = Product::find($id);
-        $inventories = Inventory::all();
-        foreach ($inventories as $data) {
-            $data_product = Product::query()->find($data->product_id);
-            $data->name_product = $data_product->name ?? "";
-            $data->image = $data_product->image ?? "";
-        }
+        $data['product'] = Product::find($id);
+        $data['featured_products'] = Product::orderBy('created_at','DESC')->take('4')->get();
 
-        return view('Client.product_detail', compact('product', 'inventory', 'inventories'));
+        // dd($data['featured_products']);
+        return view('Client.product_detail', $data);
     }
 }

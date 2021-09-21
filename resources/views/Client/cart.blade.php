@@ -45,7 +45,7 @@
                                     <tr data-id="{{$id}}">
                                         <td class="thumbnail-img">
                                             <a href="#">
-                                                <img class="img-fluid" src="{{ $details['image'] }}" alt=""/>
+                                                <img class="img-fluid" src="{{ $details['image'] }}" alt=""/ style="border-radius:8px;width:120px;">
                                             </a>
                                         </td>
                                         <td class="name-pr">
@@ -79,24 +79,17 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row my-5">
-                <div class="col-lg-6 col-sm-6">
-
-                </div>
-                <hr class="my-1">
-                <h4>Shipping Cost</h4>
-                <div class="ml-auto font-weight-bold">Miễn phí vẫn chuyển</div>
-            </div>
             <hr>
             <div class="d-flex gr-total">
-                <h5>Grand Total</h5>
+                <h5>Tổng đơn hàng</h5>
                 <div class="ml-auto h5">${{ $total }}</div>
             </div>
             <hr>
+            <div class="col-12 d-flex shopping-box">
+                <a href="{{route('checkout')}}" class="ml-auto btn hvr-hover">Thanh toán</a>
+            </div>
         </div>
     </div>
-    <div class="col-12 d-flex shopping-box"><a href="" class="ml-auto btn hvr-hover">Thanh toán</a></div>
     </div>
 
     </div>

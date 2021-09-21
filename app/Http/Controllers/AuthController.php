@@ -40,7 +40,7 @@ class AuthController extends Controller
     public function getLogin()
     {
         if (Auth::check()) {
-            return redirect()->route('get.home');
+            return redirect()->route('dashboard');
         } else {
             return view('auth.login');
         }
@@ -56,7 +56,7 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('get.home');
+            return redirect()->route('dashboard');
         }
         return redirect()->route('get.login')->with('error', 'Bạn đã điền sai thông tin đăng nhập');
     }

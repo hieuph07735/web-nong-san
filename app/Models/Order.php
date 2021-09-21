@@ -7,10 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $table = 'oders';
-    protected $fillable = ['user_id','name','phone','address','total_price'];
-    protected $timestamps = true;
-    public function user(){
+
+    protected $fillable = ['date_order', 'total_price','customer_id','note'];
+
+    public $timestamps = true;
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    
+    //Định nghĩa quan hệ cho order (one to one)
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'customer_id', 'id');
+    }
 }
